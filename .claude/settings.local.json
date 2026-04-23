@@ -1,0 +1,29 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(npm install:*)",
+      "Bash(node -e \":*)",
+      "Bash(node -e \"const q = require\\(''./data/questions.json''\\); console.log\\(''Questions:'', q.length, ''| First:'', q[0].scenario.substring\\(0,50\\)\\)\")",
+      "mcp__Claude_Preview__preview_start",
+      "Bash(timeout 6)",
+      "Bash(timeout 8)",
+      "Bash(timeout 15)",
+      "Bash(timeout 12)",
+      "Bash(timeout 5)",
+      "Bash(timeout 4)",
+      "Bash(node server.js)",
+      "Bash(timeout 3 curl -s http://localhost:3000/ -o /dev/null -w \"%{http_code}\")",
+      "Bash(powershell -Command \"Get-NetTCPConnection -LocalPort 3000 -ErrorAction SilentlyContinue | Select-Object OwningProcess -Unique\")",
+      "Bash(powershell -Command \"Stop-Process -Id 16732 -Force\")",
+      "Bash(node -c server.js)",
+      "Bash(node -c public/js/game.js)",
+      "Bash(node -c public/js/socket.js)",
+      "Bash(node -c public/js/teacher.js)",
+      "Bash(node -e \"JSON.parse\\(require\\('fs'\\).readFileSync\\('data/cards.json', 'utf8'\\)\\); console.log\\('cards.json valid'\\);\")",
+      "Bash(netstat -ano)",
+      "Bash(findstr :3000)",
+      "Bash(powershell -NoProfile -Command \"Get-Content 'C:\\\\Users\\\\matip\\\\AppData\\\\Local\\\\Temp\\\\claude\\\\D--dev-game-javascript-web-app\\\\5a22069e-89cb-462a-af3f-537dfa97fb95\\\\tasks\\\\bh2dm42hd.output' -Wait -Tail 0 | Select-String -Pattern 'Turno|Candidato|Desconec|Reconex|Primer ingreso|Jugador unido|Rejoin|Partida|Debate|DEBATE|Escándalo|Escandalo|Coalición|Coalicion|Resultado|Asesor|Error|Exception|TypeError|undefined|NaN|stack|ECONN|EADDR|saltando|anul'\")",
+      "Bash(powershell -NoProfile -Command \"Get-Content 'C:\\\\Users\\\\matip\\\\AppData\\\\Local\\\\Temp\\\\claude\\\\D--dev-game-javascript-web-app\\\\5a22069e-89cb-462a-af3f-537dfa97fb95\\\\tasks\\\\bn940qn7w.output' -Wait -Tail 0 | Select-String -Pattern 'Turno|Candidato|Desconec|Reconex|Primer ingreso|Jugador unido|Rejoin|Partida|Debate|DEBATE|Escándalo|Escandalo|Coalición|Coalicion|Resultado|Asesor|Error|Exception|TypeError|undefined|NaN|stack|ECONN|EADDR|saltando|anul'\")"
+    ]
+  }
+}

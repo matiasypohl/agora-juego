@@ -1,0 +1,42 @@
+{
+  "agenda": {
+    "type": "agenda",
+    "name": "Carta de Agenda",
+    "description": "Presenta un dilema cívico al candidato",
+    "icon": "📋",
+    "color": "#3b82f6",
+    "usedBy": "citizen"
+  },
+  "strategy": [
+    {
+      "type": "respaldo",
+      "name": "Carta de Respaldo",
+      "description": "+2 votos al candidato",
+      "icon": "👍",
+      "color": "#22c55e",
+      "usedBy": "citizen",
+      "effect": { "votes": 2 },
+      "weight": 3
+    },
+    {
+      "type": "censura",
+      "name": "Carta de Censura",
+      "description": "-2 votos al candidato",
+      "icon": "👎",
+      "color": "#ef4444",
+      "usedBy": "citizen",
+      "effect": { "votes": -2 },
+      "weight": 3
+    },
+    {
+      "type": "coalicion",
+      "name": "Carta de Coalición",
+      "description": "Te conviertes en Asesor: puedes enviar un mensaje privado al candidato",
+      "icon": "🤝",
+      "color": "#8b5cf6",
+      "usedBy": "citizen",
+      "effect": { "becomeAdvisor": true },
+      "weight": 1
+    }
+  ]
+}

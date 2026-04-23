@@ -1,0 +1,78 @@
+<h2>Flujo de un Turno en ÁGORA</h2>
+<p class="subtitle">Cada turno pertenece a un candidato/a — se repite hasta que todos respondan todas sus preguntas</p>
+
+<div style="display:flex; flex-direction:column; gap:10px; max-width:700px; margin:0 auto;">
+
+  <!-- FASE 0: SALVAVIDAS -->
+  <div style="background:rgba(245,158,11,0.12); border:1px solid rgba(245,158,11,0.35); border-radius:10px; padding:14px 16px; display:flex; gap:14px; align-items:flex-start;">
+    <div style="background:rgba(245,158,11,0.3); border-radius:50%; width:32px; height:32px; display:flex; align-items:center; justify-content:center; font-weight:bold; flex-shrink:0; font-size:0.85rem;">0</div>
+    <div>
+      <div style="font-weight:bold; margin-bottom:3px;">⚡ Fase Salvavidas <span style="font-size:0.72rem; opacity:0.6; font-weight:normal;">(opcional)</span></div>
+      <div style="font-size:0.82rem; opacity:0.85;">Si el candidato tiene un <strong>Asesor</strong>, éste puede usar la carta Salvavida para saltar la Fase de Evento de este turno. Decisión inmediata antes de que aparezca la pregunta.</div>
+    </div>
+  </div>
+
+  <!-- FLECHA -->
+  <div style="text-align:center; opacity:0.3; font-size:1.1rem;">↓</div>
+
+  <!-- FASE 1: EVENTO -->
+  <div style="background:rgba(124,58,237,0.15); border:2px solid rgba(124,58,237,0.5); border-radius:10px; padding:14px 16px; display:flex; gap:14px; align-items:flex-start;">
+    <div style="background:rgba(124,58,237,0.4); border-radius:50%; width:32px; height:32px; display:flex; align-items:center; justify-content:center; font-weight:bold; flex-shrink:0; font-size:0.85rem;">1</div>
+    <div style="flex:1;">
+      <div style="font-weight:bold; margin-bottom:3px;">📋 Fase de Evento <span style="font-size:0.72rem; color:#a78bfa;">⏱ 90 segundos</span></div>
+      <div style="font-size:0.82rem; opacity:0.85; margin-bottom:8px;">Un ciudadano juega una Carta de Evento. El candidato ve el escenario cívico con <strong>alternativas A/B/C/D</strong> y debe:</div>
+      <div style="display:flex; gap:8px; flex-wrap:wrap; font-size:0.78rem;">
+        <div style="background:rgba(124,58,237,0.2); border-radius:6px; padding:5px 10px;">① Seleccionar una alternativa</div>
+        <div style="background:rgba(124,58,237,0.2); border-radius:6px; padding:5px 10px;">② Escribir su justificación pública</div>
+      </div>
+      <div style="font-size:0.75rem; margin-top:8px; opacity:0.65;">→ Todos los jugadores ven la pregunta y la respuesta del candidato en tiempo real</div>
+    </div>
+  </div>
+
+  <!-- FASE 1B: RÉPLICA -->
+  <div style="background:rgba(20,184,166,0.1); border:1px dashed rgba(20,184,166,0.4); border-radius:10px; padding:12px 16px; display:flex; gap:14px; align-items:flex-start; margin-left:24px;">
+    <div style="background:rgba(20,184,166,0.25); border-radius:50%; width:32px; height:32px; display:flex; align-items:center; justify-content:center; font-weight:bold; flex-shrink:0; font-size:0.75rem;">1b</div>
+    <div>
+      <div style="font-weight:bold; margin-bottom:3px; font-size:0.88rem;">💬 Fase de Réplica <span style="font-size:0.72rem; opacity:0.6; font-weight:normal;">(si se juega Carta Réplica)</span> <span style="font-size:0.72rem; color:#5eead4;">⏱ 30s + 30s</span></div>
+      <div style="font-size:0.8rem; opacity:0.85;">Un ciudadano usa la Carta Réplica: 30s para escribir una contra-pregunta → 30s para que el candidato responda.</div>
+    </div>
+  </div>
+
+  <div style="text-align:center; opacity:0.3; font-size:1.1rem;">↓</div>
+
+  <!-- FASE 2: VOTACIÓN -->
+  <div style="background:rgba(6,95,70,0.18); border:2px solid rgba(16,185,129,0.45); border-radius:10px; padding:14px 16px; display:flex; gap:14px; align-items:flex-start;">
+    <div style="background:rgba(16,185,129,0.35); border-radius:50%; width:32px; height:32px; display:flex; align-items:center; justify-content:center; font-weight:bold; flex-shrink:0; font-size:0.85rem;">2</div>
+    <div>
+      <div style="font-weight:bold; margin-bottom:3px;">🗳️ Fase de Votación Secreta <span style="font-size:0.72rem; color:#6ee7b7;">⏱ 20 segundos</span></div>
+      <div style="font-size:0.82rem; opacity:0.85;">Todos los jugadores (incluido el profesor) votan <strong>en secreto</strong>: 👍 Me convenció / 👎 No me convenció. Nadie ve el voto de los demás hasta que termina la fase. El resultado se revela con animación.</div>
+    </div>
+  </div>
+
+  <div style="text-align:center; opacity:0.3; font-size:1.1rem;">↓</div>
+
+  <!-- FASE 3: ESTRATEGIA -->
+  <div style="background:rgba(220,38,38,0.12); border:1px solid rgba(239,68,68,0.35); border-radius:10px; padding:14px 16px; display:flex; gap:14px; align-items:flex-start;">
+    <div style="background:rgba(239,68,68,0.3); border-radius:50%; width:32px; height:32px; display:flex; align-items:center; justify-content:center; font-weight:bold; flex-shrink:0; font-size:0.85rem;">3</div>
+    <div>
+      <div style="font-weight:bold; margin-bottom:3px;">🃏 Fase de Estrategia <span style="font-size:0.72rem; color:#fca5a5;">⏱ 30 segundos</span></div>
+      <div style="font-size:0.82rem; opacity:0.85;">Cada ciudadano puede jugar <strong>UNA</strong> carta de estrategia (Protección, Castigo, Fake News) o pasar. Las cartas se juegan simultáneamente — se revelan todas al mismo tiempo para evitar ventaja informacional.</div>
+    </div>
+  </div>
+
+  <div style="text-align:center; opacity:0.3; font-size:1.1rem;">↓</div>
+
+  <!-- FIN TURNO -->
+  <div style="background:rgba(255,255,255,0.05); border:1px solid rgba(255,255,255,0.15); border-radius:10px; padding:12px 16px; display:flex; gap:14px; align-items:center;">
+    <div style="font-size:1.4rem;">📊</div>
+    <div>
+      <div style="font-weight:bold; margin-bottom:2px; font-size:0.9rem;">Fin del Turno — Marcador actualizado</div>
+      <div style="font-size:0.8rem; opacity:0.75;">Se muestran los votos netos del turno (votos ± cartas de estrategia). El marcador global se actualiza. Pasa al siguiente candidato.</div>
+    </div>
+  </div>
+
+</div>
+
+<div style="margin-top:20px; padding:12px 16px; background:rgba(255,215,0,0.08); border:1px solid rgba(255,215,0,0.2); border-radius:8px; font-size:0.8rem;">
+  <strong>🏆 Fin de partida:</strong> Cuando cada candidato responda todas sus preguntas de Evento. El candidato con más votos totales gana y es proclamado <strong>ELEGIDO/A</strong> por el Servicio Electoral.
+</div>

@@ -1,0 +1,74 @@
+<h2>Arquitectura de ÁGORA</h2>
+<p class="subtitle">Cómo se conectan las piezas — un solo servidor, tres tipos de cliente</p>
+
+<div style="display:flex; gap:16px; flex-wrap:wrap; margin-bottom:24px;">
+
+  <!-- SERVER -->
+  <div style="flex:1; min-width:200px; background:rgba(124,58,237,0.15); border:1px solid rgba(124,58,237,0.4); border-radius:12px; padding:16px;">
+    <div style="font-size:0.7rem; letter-spacing:2px; text-transform:uppercase; color:#a78bfa; margin-bottom:8px;">🖥️ SERVIDOR</div>
+    <div style="font-weight:bold; margin-bottom:6px;">Node.js + Socket.io</div>
+    <ul style="font-size:0.82rem; opacity:0.85; line-height:1.7; padding-left:16px; margin:0;">
+      <li>Sirve archivos estáticos</li>
+      <li>Maneja salas de juego</li>
+      <li>Es el árbitro del estado</li>
+      <li>Valida cada acción</li>
+      <li>BD SQLite (Fase 2)</li>
+    </ul>
+    <div style="margin-top:10px; font-size:0.75rem; background:rgba(124,58,237,0.2); border-radius:6px; padding:6px 10px; color:#c4b5fd;">
+      <code>node server.js</code><br>
+      → funciona en LAN local<br>
+      → sin internet necesario
+    </div>
+  </div>
+
+  <!-- ARROW -->
+  <div style="display:flex; align-items:center; justify-content:center; font-size:1.5rem; opacity:0.5; flex-shrink:0;">⇄</div>
+
+  <!-- CLIENTS -->
+  <div style="flex:2; min-width:300px; display:flex; flex-direction:column; gap:10px;">
+
+    <div style="background:rgba(6,95,70,0.2); border:1px solid rgba(16,185,129,0.4); border-radius:10px; padding:12px; display:flex; gap:12px; align-items:center;">
+      <div style="font-size:1.5rem;">👨‍🏫</div>
+      <div>
+        <div style="font-weight:bold; font-size:0.9rem;">Panel del Profesor</div>
+        <div style="font-size:0.78rem; opacity:0.8;">Crea sala, asigna roles, controla fases, ve votos en tiempo real</div>
+      </div>
+      <div style="margin-left:auto; font-size:0.7rem; background:rgba(16,185,129,0.2); padding:3px 8px; border-radius:20px; color:#6ee7b7; white-space:nowrap;">/teacher</div>
+    </div>
+
+    <div style="background:rgba(220,38,38,0.15); border:1px solid rgba(239,68,68,0.4); border-radius:10px; padding:12px; display:flex; gap:12px; align-items:center;">
+      <div style="font-size:1.5rem;">🎤</div>
+      <div>
+        <div style="font-weight:bold; font-size:0.9rem;">Vista Candidato/a</div>
+        <div style="font-size:0.78rem; opacity:0.8;">Lee la pregunta, escribe respuesta, ve su marcador de votos</div>
+      </div>
+      <div style="margin-left:auto; font-size:0.7rem; background:rgba(239,68,68,0.2); padding:3px 8px; border-radius:20px; color:#fca5a5; white-space:nowrap;">/game</div>
+    </div>
+
+    <div style="background:rgba(37,99,235,0.15); border:1px solid rgba(59,130,246,0.4); border-radius:10px; padding:12px; display:flex; gap:12px; align-items:center;">
+      <div style="font-size:1.5rem;">🗳️</div>
+      <div>
+        <div style="font-weight:bold; font-size:0.9rem;">Vista Ciudadano/a</div>
+        <div style="font-size:0.78rem; opacity:0.8;">Ve la pregunta y respuesta, vota en secreto, juega cartas de estrategia</div>
+      </div>
+      <div style="margin-left:auto; font-size:0.7rem; background:rgba(59,130,246,0.2); padding:3px 8px; border-radius:20px; color:#93c5fd; white-space:nowrap;">/game</div>
+    </div>
+
+  </div>
+</div>
+
+<div style="border-top:1px solid rgba(255,255,255,0.1); padding-top:16px;">
+  <div style="font-size:0.8rem; opacity:0.7; margin-bottom:8px; text-transform:uppercase; letter-spacing:1px;">Flujo de archivos</div>
+  <div style="display:flex; gap:8px; flex-wrap:wrap; font-size:0.78rem;">
+    <div style="background:rgba(255,255,255,0.07); border-radius:6px; padding:6px 10px; font-family:monospace;">server.js</div>
+    <div style="background:rgba(255,255,255,0.07); border-radius:6px; padding:6px 10px; font-family:monospace;">public/index.html</div>
+    <div style="background:rgba(255,255,255,0.07); border-radius:6px; padding:6px 10px; font-family:monospace;">public/game.html</div>
+    <div style="background:rgba(255,255,255,0.07); border-radius:6px; padding:6px 10px; font-family:monospace;">public/teacher.html</div>
+    <div style="background:rgba(255,255,255,0.07); border-radius:6px; padding:6px 10px; font-family:monospace;">public/js/</div>
+    <div style="background:rgba(255,255,255,0.07); border-radius:6px; padding:6px 10px; font-family:monospace;">public/css/</div>
+    <div style="background:rgba(255,255,255,0.07); border-radius:6px; padding:6px 10px; font-family:monospace;">data/questions.json</div>
+    <div style="background:rgba(255,255,255,0.07); border-radius:6px; padding:6px 10px; font-family:monospace;">data/cards.json</div>
+  </div>
+</div>
+
+<p style="margin-top:16px; font-size:0.82rem; opacity:0.75;">El servidor es el <strong>árbitro único</strong> — ningún cliente puede hacer trampa porque todo se valida en el servidor antes de propagarse. Los clientes son "vistas" del estado del juego.</p>

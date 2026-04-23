@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ÁGORA — Lobby</title>
+  <link rel="stylesheet" href="/css/main.css">
+</head>
+<body>
+  <div class="lobby-container">
+    <div class="lobby-card">
+      <h1 class="logo">🏛️ ÁGORA</h1>
+      <p class="subtitle">Educación cívica en juego</p>
+
+      <div id="join-form">
+        <input type="text" id="room-code" placeholder="Código de sala" maxlength="6" autocomplete="off" autofocus>
+        <input type="text" id="player-name" placeholder="Tu nombre" maxlength="20" autocomplete="off">
+        <button id="btn-join" class="btn btn-primary btn-lg">Unirse a la partida</button>
+        <p id="error-msg" class="error-msg"></p>
+      </div>
+
+      <div id="waiting-room" class="hidden">
+        <h2>Sala: <span id="display-code"></span></h2>
+        <p class="player-count"><span id="player-count-num">0</span> jugadores conectados</p>
+        <div id="player-list-lobby" style="display:flex; flex-wrap:wrap; justify-content:center; gap:0.3rem; margin-bottom:1rem;"></div>
+        <p class="waiting-text">Esperando que el profesor inicie la partida...</p>
+      </div>
+
+      <a href="/teacher" class="teacher-link">¿Eres profesor? → Crear sala</a>
+    </div>
+  </div>
+
+  <script src="/socket.io/socket.io.js"></script>
+  <script>
+    const socket = io();
+    let roomCode = null;
+
+    const $ = id => document.getElementById(id);
+
+    // Restore name from session
+    const savedName = sessionStorage.getItem('agora_name');
+    if (savedName) $('player-name').value = savedName;
+
+    $('btn-join').addEventListener('click', () => {
+      const code = $('room-code').value.trim().toUpperCase();
+      const name = $('player-name').value.trim();
+
+      if (!code || code.length !== 6) {
+        $('error-msg').textContent = 'Ingresa un código de sala de 6 caracteres';
+        shakeInput($('room-code'));
+        return;
+      }
+      if (!name) {
+        $('error-msg').textContent = 'Ingresa tu nombre';
+        shakeInput($('player-name'));
+        return;
+      }
+
+      $('btn-join').disabled = true;
+      $('btn-join').textContent = 'Conectando...';
+      $('error-msg').textContent = '';
+
+      socket.emit('player:join', { code, name }, (res) => {
+        if (res.error) {
+          $('error-msg').textContent = res.error;
+          $('btn-join').disabled = false;
+          $('btn-join').textContent = 'Unirse a la partida';
+          return;
+        }
+        roomCode = code;
+        sessionStorage.setItem('agora_name', name);
+        sessionStorage.setItem('agora_code', code);
+        if (res.reconnectToken) sessionStorage.setItem('agora_token', res.reconnectToken);
+        // Mid-game rejoin — go straight to game
+        if (res.rejoin) {
+          sessionStorage.setItem('agora_first_load', '1');
+          window.location.href = '/game?code=' + code;
+          return;
+        }
+        $('join-form').classList.add('hidden');
+        $('waiting-room').classList.remove('hidden');
+        $('display-code').textContent = code;
+      });
+    });
+
+    function shakeInput(el) {
+      el.style.animation = 'none';
+      el.offsetHeight; // trigger reflow
+      el.style.animation = 'shake 0.4s ease';
+    }
+
+    // Enter key navigation
+    $('room-code').addEventListener('keydown', (e) => {
+      if (e.key === 'Enter') $('player-name').focus();
+    });
+    $('player-name').addEventListener('keydown', (e) => {
+      if (e.key === 'Enter') $('btn-join').click();
+    });
+
+    // Auto-uppercase room code
+    $('room-code').addEventListener('input', (e) => {
+      e.target.value = e.target.value.toUpperCase();
+    });
+
+    socket.on('game:state', (state) => {
+      if (state.state === 'lobby') {
+        const list = $('player-list-lobby');
+        const count = $('player-count-num');
+        if (list) {
+          list.innerHTML = state.players.map(p => {
+            const safeName = (typeof p.name === 'string' ? p.name : '').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
+            return `<div class="player-chip ${p.role === 'candidate' ? 'candidate' : ''}">${safeName}${p.role === 'candidate' ? ' ⭐' : ''}</div>`;
+          }).join('');
+        }
+        if (count) count.textContent = state.players.length;
+      }
+      if (state.state === 'playing') {
+        sessionStorage.setItem('agora_first_load', '1');
+        window.location.href = '/game?code=' + roomCode;
+      }
+    });
+  </script>
+  <style>
+    @keyframes shake {
+      0%, 100% { transform: translateX(0); }
+      20%, 60% { transform: translateX(-6px); }
+      40%, 80% { transform: translateX(6px); }
+    }
+  </style>
+</body>
+</html>

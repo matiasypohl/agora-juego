@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ÁGORA — Panel del Profesor</title>
+  <link rel="stylesheet" href="/css/main.css">
+</head>
+<body>
+  <div class="teacher-container">
+    <!-- Header -->
+    <header class="teacher-header">
+      <h1 class="logo-sm">🏛️ ÁGORA</h1>
+      <span id="room-badge" class="room-badge hidden">Sala: <strong id="room-code-display"></strong></span>
+    </header>
+
+    <!-- Create Room -->
+    <div id="create-section" class="panel">
+      <h2>Crear nueva sala</h2>
+      <button id="btn-create" class="btn btn-primary btn-lg">Crear Sala</button>
+
+      <hr style="margin:1.5rem 0; border-color:var(--color-surface-2);">
+
+      <h2>Reconectar a sala existente</h2>
+      <div style="display:flex; gap:0.5rem; justify-content:center; align-items:center; flex-wrap:wrap;">
+        <input type="text" id="rejoin-code" placeholder="Código de sala" maxlength="6" autocomplete="off"
+               style="text-transform:uppercase; max-width:160px;">
+        <button id="btn-rejoin" class="btn btn-secondary">Reconectar</button>
+      </div>
+      <p id="rejoin-error" class="error-msg"></p>
+    </div>
+
+    <!-- Lobby -->
+    <div id="lobby-section" class="hidden">
+      <div class="panel">
+        <h2>Jugadores conectados</h2>
+        <div id="player-list" class="player-grid"></div>
+        <p class="hint">Haz clic en un jugador para asignarlo como candidato</p>
+      </div>
+      <div class="panel">
+        <h2>Candidatos seleccionados: <span id="candidate-count">0</span></h2>
+        <div id="candidate-list" class="candidate-chips"></div>
+      </div>
+
+      <!-- Game Config -->
+      <div class="panel">
+        <h2>⚙️ Configuración</h2>
+        <div class="config-row">
+          <label for="config-rounds">Rondas por candidato:</label>
+          <div class="config-stepper">
+            <button class="btn btn-small btn-secondary" id="btn-rounds-minus">−</button>
+            <span id="config-rounds" class="config-value">5</span>
+            <button class="btn btn-small btn-secondary" id="btn-rounds-plus">+</button>
+          </div>
+        </div>
+        <p class="hint" id="config-hint">Total estimado: <span id="config-total-turns">10</span> turnos</p>
+      </div>
+
+      <div class="panel" style="text-align:center;">
+        <button id="btn-start" class="btn btn-primary btn-lg" disabled>Iniciar Partida</button>
+        <p id="start-error" class="error-msg"></p>
+      </div>
+    </div>
+
+    <!-- Game Control -->
+    <div id="game-section" class="hidden">
+      <!-- Phase & Timer -->
+      <div class="panel phase-panel" id="phase-panel">
+        <div class="phase-info">
+          <span class="phase-label" id="phase-label">—</span>
+          <span class="phase-candidate" id="phase-candidate"></span>
+        </div>
+        <div class="timer-bar-container">
+          <div class="timer-bar" id="timer-bar"></div>
+          <span class="timer-text" id="timer-text">—</span>
+        </div>
+        <div class="control-buttons">
+          <button id="btn-pause" class="btn btn-secondary">⏸ Pausar</button>
+          <button id="btn-skip" class="btn btn-secondary">⏭ Saltar fase</button>
+          <button id="btn-end" class="btn btn-danger">🛑 Terminar partida</button>
+        </div>
+      </div>
+
+      <!-- Scoreboard -->
+      <div class="panel">
+        <h2>Marcador</h2>
+        <div id="scoreboard"></div>
+      </div>
+
+      <!-- Current Question -->
+      <div class="panel">
+        <h2>Dilema actual</h2>
+        <div id="current-question" class="question-display">—</div>
+        <div id="candidate-answer-display"></div>
+      </div>
+
+      <!-- Player Status -->
+      <div class="panel">
+        <h2>Jugadores</h2>
+        <div id="game-player-list" class="player-grid"></div>
+      </div>
+
+      <!-- Vote count -->
+      <div class="panel" id="vote-count-panel">
+        <h2>Votos recibidos</h2>
+        <p id="vote-count-text">—</p>
+      </div>
+
+      <!-- Activity Log -->
+      <div class="panel">
+        <h2>📜 Registro de actividad</h2>
+        <div id="activity-log" class="activity-log"></div>
+      </div>
+    </div>
+
+    <!-- Game End -->
+    <div id="end-section" class="hidden">
+      <div class="panel end-panel">
+        <h1>🏆 Resultado Final</h1>
+        <div id="final-results"></div>
+      </div>
+
+      <div class="panel">
+        <h2>📊 Estadísticas de la partida</h2>
+        <div id="stats-overview" class="stats-grid"></div>
+      </div>
+
+      <div class="panel">
+        <h2>🃏 Cartas jugadas</h2>
+        <div id="stats-cards" class="stats-cards"></div>
+      </div>
+
+      <div class="panel">
+        <h2>📈 Evolución por turno</h2>
+        <div id="stats-turns"></div>
+      </div>
+
+      <div class="panel" style="text-align:center;">
+        <button id="btn-restart" class="btn btn-primary btn-lg">🔄 Jugar de nuevo</button>
+        <p class="hint" style="margin-top:0.5rem;">Vuelve al lobby con el mismo grupo</p>
+      </div>
+    </div>
+  </div>
+
+  <script src="/socket.io/socket.io.js"></script>
+  <script src="/js/teacher.js"></script>
+</body>
+</html>

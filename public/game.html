@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ÁGORA — Juego</title>
+  <link rel="stylesheet" href="/css/main.css">
+</head>
+<body>
+  <div class="game-container">
+    <!-- Header -->
+    <header class="game-header">
+      <span class="logo-sm">🏛️ ÁGORA</span>
+      <span id="my-role-badge" class="role-badge"></span>
+      <span id="my-name-badge" class="name-badge"></span>
+    </header>
+
+    <!-- Timer Bar -->
+    <div class="timer-bar-container top-timer">
+      <div class="timer-bar" id="timer-bar"></div>
+      <span class="timer-text" id="timer-text" aria-live="off" aria-label="Tiempo restante"></span>
+    </div>
+
+    <!-- Phase Label -->
+    <div class="phase-banner" id="phase-banner">
+      <span id="phase-label" aria-live="polite">Esperando...</span>
+      <span id="phase-candidate-name"></span>
+    </div>
+
+    <!-- Role Instruction -->
+    <div id="role-instruction" class="role-instruction hidden"></div>
+
+    <!-- Main Content Area -->
+    <main id="game-content" class="game-content">
+
+      <!-- Waiting -->
+      <section id="view-waiting" class="game-view" aria-label="Sala de espera">
+        <div style="text-align:center; padding: 3rem 0;">
+          <div style="font-size:4rem; margin-bottom:1rem;">🏛️</div>
+          <p class="big-text">Esperando que inicie la partida...</p>
+          <p class="hint" style="margin-top:0.5rem;">El profesor asignará los roles</p>
+        </div>
+      </section>
+
+      <!-- Agenda Window -->
+      <section id="view-agenda-window" class="game-view hidden" aria-label="Ventana de agenda">
+        <div style="text-align:center;">
+          <p class="phase-desc">¡Turno de <strong id="aw-candidate-name"></strong>!</p>
+          <div id="timer-big" class="timer-big"></div>
+          <div id="agenda-cards-hand" class="agenda-choices" style="margin-top:1.5rem;"></div>
+          <p id="aw-waiting" class="hint" style="margin-top:1rem;">Esperando que alguien elija el tema...</p>
+        </div>
+      </section>
+
+      <!-- Agenda Phase -->
+      <section id="view-agenda" class="game-view hidden" aria-label="Fase de agenda">
+        <div class="question-card">
+          <span class="question-label">Dilema cívico</span>
+          <p class="question-scenario" id="agenda-scenario"></p>
+          <div id="agenda-options" class="options-grid"></div>
+        </div>
+        <div id="candidate-answer-show" class="candidate-answer hidden">
+          <p>Respuesta elegida: <strong id="chosen-answer"></strong></p>
+        </div>
+      </section>
+
+      <!-- Advisor Panel (reusable — visible during agenda_window + agenda) -->
+      <div id="advisor-panel" class="advisor-panel hidden">
+        <div id="advisor-input" class="hidden" style="display:flex; gap:0.5rem; align-items:center;">
+          <span style="font-size:1.2rem;">🤝</span>
+          <input type="text" id="advisor-msg" placeholder="Consejo privado a tu candidato..." maxlength="150" style="flex:1;">
+          <button id="btn-send-advice" class="btn btn-small btn-primary">Enviar</button>
+        </div>
+        <div id="advisor-received" class="advisor-bubble hidden" style="margin-top:0.5rem;">
+          <p class="advisor-label">💬 Mensaje del Asesor:</p>
+          <p id="advisor-received-text"></p>
+        </div>
+      </div>
+
+      <!-- Voting Phase -->
+      <section id="view-voting" class="game-view hidden" aria-label="Votación secreta">
+        <div style="text-align:center;">
+          <h3 style="margin-bottom:0.5rem;">🗳️ Votación Secreta</h3>
+          <p class="phase-desc">¿Te convenció la postura del candidato?</p>
+          <div id="vote-buttons" class="vote-buttons">
+            <button class="btn-vote btn-vote-up" data-vote="up" aria-label="Votar a favor">👍</button>
+            <button class="btn-vote btn-vote-down" data-vote="down" aria-label="Votar en contra">👎</button>
+          </div>
+          <div id="vote-selection-display" class="hidden" style="padding:1rem 0;">
+            <p style="font-size:2.5rem; margin-bottom:0.5rem;" id="vote-selection-emoji"></p>
+            <p style="margin-bottom:1rem; color:var(--color-text-muted);">Tu elección: <strong id="vote-selection-label"></strong></p>
+            <div style="display:flex; gap:0.75rem; justify-content:center;">
+              <button id="btn-vote-change" class="btn btn-secondary btn-small">Cambiar</button>
+              <button id="btn-vote-confirm" class="btn btn-primary">✅ Confirmar voto</button>
+            </div>
+          </div>
+          <p id="vote-confirmed" class="hidden" style="font-size:1.3rem; padding:2rem 0;">✅ Voto confirmado</p>
+          <p id="vote-candidate-wait" class="hidden" style="padding:2rem 0;">
+            <span style="font-size:3rem; display:block; margin-bottom:0.5rem;">🤞</span>
+            <span class="hint">Los ciudadanos deciden tu destino...</span>
+          </p>
+        </div>
+      </section>
+
+      <!-- Vote Reveal -->
+      <section id="view-vote-reveal" class="game-view hidden" aria-label="Resultados de votación">
+        <h3 style="text-align:center; margin-bottom:1rem;">Resultados de la votación</h3>
+        <div id="vote-emoji-grid" class="vote-emoji-grid"></div>
+        <div class="vote-reveal-container">
+          <div class="vote-bar-group">
+            <div class="vote-bar-label">👍 A favor: <span id="reveal-ups">0</span></div>
+            <div class="vote-bar positive" id="reveal-bar-up"></div>
+          </div>
+          <div class="vote-bar-group">
+            <div class="vote-bar-label">👎 En contra: <span id="reveal-downs">0</span></div>
+            <div class="vote-bar negative" id="reveal-bar-down"></div>
+          </div>
+        </div>
+        <div id="reveal-net" class="vote-net-result"></div>
+        <p id="reveal-multiplier" class="hidden" style="text-align:center; color:var(--color-accent); font-weight:700; margin-top:0.5rem;">⚡ Multiplicador ×2 activo</p>
+      </section>
+
+      <!-- Scandal Indicator (overlays during scandal voting) -->
+      <div id="scandal-indicator" class="scandal-indicator hidden">
+        <span class="scandal-badge">💥 ESCÁNDALO ×2</span>
+      </div>
+
+      <!-- Debate Question Phase -->
+      <section id="view-debate-question" class="game-view hidden" aria-label="Debate: respuestas">
+        <div class="debate-header">
+          <h3>⚔️ ¡DEBATE!</h3>
+          <p class="phase-desc" id="debate-vs"></p>
+        </div>
+        <div class="question-card">
+          <span class="question-label">Dilema del Debate</span>
+          <p class="question-scenario" id="debate-scenario"></p>
+        </div>
+        <div id="debate-candidate-input" class="hidden" style="margin-top:1rem;">
+          <textarea id="debate-answer-input" maxlength="300" rows="3" placeholder="Escribe tu postura..."></textarea>
+          <button id="btn-send-debate-answer" class="btn btn-primary">Enviar respuesta</button>
+        </div>
+        <div id="debate-answers-display" class="debate-answers-grid hidden"></div>
+        <div id="debate-waiting" class="hidden" style="text-align:center; padding:1.5rem 0;">
+          <div style="font-size:3rem; margin-bottom:0.5rem;">⚔️</div>
+          <p class="hint">Los candidatos están respondiendo...</p>
+        </div>
+      </section>
+
+      <!-- Debate Vote Phase -->
+      <section id="view-debate-vote" class="game-view hidden" aria-label="Debate: votación">
+        <div class="debate-header">
+          <h3>⚔️ ¿Quién convenció más?</h3>
+        </div>
+        <div id="debate-vote-answers" class="debate-answers-grid"></div>
+        <div id="debate-vote-buttons" class="debate-vote-buttons"></div>
+        <p id="debate-vote-confirmed" class="hidden" style="font-size:1.3rem; text-align:center; padding:1.5rem 0;">✅ Voto registrado</p>
+        <p id="debate-vote-candidate-wait" class="hidden" style="text-align:center; padding:1.5rem 0;">
+          <span class="hint">Los ciudadanos deciden quién fue más convincente...</span>
+        </p>
+      </section>
+
+      <!-- Debate Result Phase -->
+      <section id="view-debate-result" class="game-view hidden" aria-label="Debate: resultado">
+        <div id="debate-result-content" style="text-align:center;"></div>
+      </section>
+
+      <!-- Strategy Phase -->
+      <section id="view-strategy" class="game-view hidden" aria-label="Fase de estrategia">
+        <div style="text-align:center;">
+          <h3 style="margin-bottom:0.5rem;">🃏 Fase de Estrategia</h3>
+          <p class="phase-desc" style="margin-bottom:1rem;">Juega una carta o pasa</p>
+          <div id="strategy-hand" class="card-hand"></div>
+          <button id="btn-pass" class="btn btn-secondary" style="margin-top:0.5rem;">Pasar turno</button>
+          <p id="strategy-confirmed" class="hidden" style="font-size:1.1rem; padding:1rem 0;">✅ Carta jugada</p>
+          <p id="strategy-candidate-wait" class="hidden" style="padding:1.5rem 0;">
+            <span style="font-size:2.5rem; display:block; margin-bottom:0.5rem;">🃏</span>
+            <span class="hint">Los ciudadanos juegan cartas...</span>
+          </p>
+        </div>
+      </section>
+
+      <!-- Strategy Reveal -->
+      <section id="view-strategy-reveal" class="game-view hidden" aria-label="Cartas reveladas">
+        <h3 style="text-align:center; margin-bottom:1rem;">📊 Cartas reveladas</h3>
+        <div id="strategy-reveal-cards"></div>
+        <div class="turn-result">
+          <p>Votos netos este turno: <strong id="net-votes" style="font-size:1.3rem;"></strong></p>
+        </div>
+      </section>
+
+      <!-- Game End -->
+      <section id="view-end" class="game-view hidden" aria-label="Resultado final">
+        <div id="game-final-results"></div>
+      </section>
+    </main>
+
+    <!-- Bottom Bar -->
+    <div class="game-bottom">
+      <div id="mini-scoreboard" class="mini-scoreboard"></div>
+      <div id="my-cards" class="my-cards-bar"></div>
+    </div>
+  </div>
+
+  <script src="/socket.io/socket.io.js"></script>
+  <script src="/js/socket.js"></script>
+  <script src="/js/game.js"></script>
+</body>
+</html>

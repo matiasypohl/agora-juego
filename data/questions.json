@@ -1,0 +1,563 @@
+[
+  {
+    "id": 1,
+    "headline": "Salud vs Educación: ¿Dónde invertir?",
+    "scenario": "La municipalidad tiene un presupuesto limitado y debe decidir cómo invertirlo. Un sector de la comuna necesita urgentemente un nuevo consultorio de salud, mientras que otro sector lleva años pidiendo la construcción de un liceo técnico-profesional.",
+    "options": [
+      { "label": "A", "text": "Priorizar la construcción del consultorio de salud, ya que la salud es un derecho fundamental e inmediato." },
+      { "label": "B", "text": "Construir el liceo técnico-profesional, porque la educación genera desarrollo a largo plazo." },
+      { "label": "C", "text": "Dividir el presupuesto para avanzar parcialmente en ambos proyectos." },
+      { "label": "D", "text": "Buscar financiamiento externo o alianzas público-privadas para ejecutar ambos proyectos sin comprometer el presupuesto municipal." }
+    ]
+  },
+  {
+    "id": 2,
+    "headline": "Marcha estudiantil paraliza el centro",
+    "scenario": "Un grupo de estudiantes secundarios organiza una marcha por el centro de la ciudad para exigir cambios en el sistema educacional. La manifestación podría afectar el comercio y el tránsito vehicular durante varias horas.",
+    "options": [
+      { "label": "A", "text": "Permitir la marcha sin restricciones, ya que el derecho a manifestarse es fundamental en democracia." },
+      { "label": "B", "text": "Autorizar la marcha pero estableciendo una ruta alternativa que minimice el impacto en el comercio." },
+      { "label": "C", "text": "Proponer una mesa de diálogo como alternativa a la marcha para canalizar las demandas de forma institucional." },
+      { "label": "D", "text": "Limitar la duración y el recorrido de la marcha para equilibrar el derecho a protesta con el derecho al trabajo de los comerciantes." }
+    ]
+  },
+  {
+    "id": 3,
+    "headline": "Minería amenaza el agua del norte",
+    "scenario": "Una empresa minera quiere iniciar operaciones cerca de un pueblo en el norte de Chile. El proyecto generaría miles de empleos, pero podría contaminar las fuentes de agua de la zona.",
+    "options": [
+      { "label": "A", "text": "Rechazar el proyecto para proteger el agua, un recurso escaso e indispensable para la vida." },
+      { "label": "B", "text": "Aprobar el proyecto con estrictas regulaciones ambientales y un plan de monitoreo permanente." },
+      { "label": "C", "text": "Permitir el proyecto solo si la empresa garantiza fuentes alternativas de agua para la comunidad." },
+      { "label": "D", "text": "Realizar un plebiscito local para que los habitantes de la zona decidan directamente." }
+    ]
+  },
+  {
+    "id": 4,
+    "headline": "Eutanasia: el derecho a morir dignamente",
+    "scenario": "El gobierno debe decidir si implementa una ley que permita a las personas elegir la eutanasia en casos de enfermedades terminales con sufrimiento irreversible.",
+    "options": [
+      { "label": "A", "text": "Aprobar la ley, porque cada persona tiene derecho a decidir sobre su propia vida y muerte digna." },
+      { "label": "B", "text": "Rechazar la ley, porque el Estado debe proteger la vida en todas las circunstancias." },
+      { "label": "C", "text": "Aprobar la ley con requisitos estrictos: opinión de varios médicos, período de reflexión y aprobación judicial." },
+      { "label": "D", "text": "En vez de eutanasia, invertir masivamente en cuidados paliativos para que nadie sienta que la muerte es su única opción." }
+    ]
+  },
+  {
+    "id": 5,
+    "headline": "Colegios prohíben celulares en la jornada",
+    "scenario": "Un colegio público decide prohibir el uso de celulares durante toda la jornada escolar, incluyendo los recreos, para mejorar la convivencia y el rendimiento académico.",
+    "options": [
+      { "label": "A", "text": "Apoyar la prohibición total, ya que los celulares distraen y afectan el aprendizaje." },
+      { "label": "B", "text": "Permitir el uso libre de celulares, ya que los estudiantes deben aprender a autorregularse." },
+      { "label": "C", "text": "Prohibir su uso solo en clases, pero permitirlos en recreos como espacio de esparcimiento." },
+      { "label": "D", "text": "Integrar los celulares como herramienta pedagógica en clases y educar sobre su uso responsable." }
+    ]
+  },
+  {
+    "id": 6,
+    "headline": "Crisis de vivienda: ¿periferia o centro?",
+    "scenario": "La región enfrenta una crisis de vivienda. Hay terrenos fiscales disponibles en la periferia de la ciudad, pero también se podrían densificar barrios céntricos ya existentes construyendo edificios de departamentos.",
+    "options": [
+      { "label": "A", "text": "Construir viviendas sociales en la periferia, donde hay más espacio y menores costos de construcción." },
+      { "label": "B", "text": "Densificar los barrios céntricos para que las familias vivan cerca de servicios, transporte y trabajo." },
+      { "label": "C", "text": "Crear incentivos para que privados construyan viviendas accesibles en distintas zonas de la ciudad." },
+      { "label": "D", "text": "Implementar un plan mixto que combine periferia y centro, priorizando la integración social." }
+    ]
+  },
+  {
+    "id": 7,
+    "headline": "Más impuestos para financiar becas universitarias",
+    "scenario": "Se propone subir los impuestos a las grandes empresas para financiar un programa de becas universitarias gratuitas para estudiantes de bajos recursos.",
+    "options": [
+      { "label": "A", "text": "Subir los impuestos, porque garantizar educación superior gratuita reduce la desigualdad." },
+      { "label": "B", "text": "No subir los impuestos, porque podría desincentivar la inversión y generar desempleo." },
+      { "label": "C", "text": "Subir los impuestos moderadamente y complementar con aportes privados a través de responsabilidad social empresarial." },
+      { "label": "D", "text": "En vez de subir impuestos, reasignar recursos de otros ministerios hacia educación." }
+    ]
+  },
+  {
+    "id": 8,
+    "headline": "Vecinos rechazan centro de rehabilitación",
+    "scenario": "Un grupo de vecinos de un barrio residencial se opone a la instalación de un centro de rehabilitación para personas con adicciones, argumentando que afectaría la seguridad y el valor de sus propiedades.",
+    "options": [
+      { "label": "A", "text": "Instalar el centro de todas formas, porque las personas con adicciones tienen derecho a rehabilitación y no deben ser discriminadas." },
+      { "label": "B", "text": "Buscar otra ubicación que no genere conflicto con los vecinos." },
+      { "label": "C", "text": "Instalar el centro pero con medidas de seguridad adicionales y mesas de diálogo con la comunidad." },
+      { "label": "D", "text": "Realizar una consulta ciudadana en el barrio para que los vecinos participen en la decisión." }
+    ]
+  },
+  {
+    "id": 9,
+    "headline": "Adiós al anonimato en redes sociales",
+    "scenario": "El Congreso debate una ley que obligaría a las redes sociales a verificar la identidad real de todos sus usuarios en Chile para combatir el ciberacoso y las noticias falsas.",
+    "options": [
+      { "label": "A", "text": "Aprobar la ley, porque la identificación reduce el acoso y la desinformación al eliminar el anonimato." },
+      { "label": "B", "text": "Rechazar la ley, porque el anonimato en internet es un derecho que protege la libertad de expresión." },
+      { "label": "C", "text": "Aprobar una versión moderada donde las plataformas verifican identidad pero no la hacen pública." },
+      { "label": "D", "text": "En vez de verificar identidad, fortalecer las herramientas de denuncia y las sanciones legales contra el ciberacoso." }
+    ]
+  },
+  {
+    "id": 10,
+    "headline": "Tierras mapuche en manos de forestal",
+    "scenario": "Una comunidad mapuche reclama la devolución de tierras ancestrales que actualmente son utilizadas por una empresa forestal que emplea a cientos de trabajadores de la zona.",
+    "options": [
+      { "label": "A", "text": "Devolver las tierras a la comunidad mapuche, reconociendo su derecho ancestral sobre el territorio." },
+      { "label": "B", "text": "Mantener la operación forestal para proteger los empleos de la zona." },
+      { "label": "C", "text": "Negociar una solución donde la comunidad reciba tierras equivalentes y la empresa se reubique gradualmente." },
+      { "label": "D", "text": "Crear un modelo de cogestión donde la comunidad mapuche y la empresa administren conjuntamente el territorio." }
+    ]
+  },
+  {
+    "id": 11,
+    "headline": "Reconocimiento facial vigila las calles",
+    "scenario": "Se propone implementar cámaras de vigilancia con reconocimiento facial en todas las plazas y calles principales de la ciudad para reducir la delincuencia.",
+    "options": [
+      { "label": "A", "text": "Implementar el sistema, porque la seguridad ciudadana debe ser prioridad y la tecnología puede ayudar." },
+      { "label": "B", "text": "Rechazar el sistema, porque el reconocimiento facial vulnera la privacidad y puede usarse para vigilancia masiva." },
+      { "label": "C", "text": "Instalar cámaras de vigilancia pero sin reconocimiento facial, protegiendo la privacidad." },
+      { "label": "D", "text": "Invertir esos recursos en iluminación, programas sociales y mayor dotación policial como alternativa." }
+    ]
+  },
+  {
+    "id": 12,
+    "headline": "Chao plástico: comerciantes preocupados",
+    "scenario": "El gobierno evalúa prohibir las bolsas plásticas de un solo uso y los envases de plumavit en todo el país. Las pequeñas empresas y comerciantes argumentan que las alternativas son mucho más caras.",
+    "options": [
+      { "label": "A", "text": "Prohibirlos inmediatamente, porque el daño ambiental es urgente y no puede esperar." },
+      { "label": "B", "text": "No prohibirlos, sino crear incentivos para que las empresas migren voluntariamente a alternativas sustentables." },
+      { "label": "C", "text": "Prohibirlos con un período de transición de dos años y subsidios para pequeños comerciantes." },
+      { "label": "D", "text": "Implementar un impuesto al uso de plásticos de un solo uso en vez de una prohibición total." }
+    ]
+  },
+  {
+    "id": 13,
+    "headline": "Educación sexual divide a los apoderados",
+    "scenario": "Un liceo municipal quiere implementar educación sexual integral desde primero medio, incluyendo temas de diversidad sexual, consentimiento y anticoncepción. Un grupo de apoderados se opone por razones religiosas y valóricas.",
+    "options": [
+      { "label": "A", "text": "Implementar la educación sexual integral obligatoria, porque es un derecho de los estudiantes acceder a información basada en evidencia." },
+      { "label": "B", "text": "Respetar la decisión de los apoderados y hacer la educación sexual optativa." },
+      { "label": "C", "text": "Implementarla con un programa base obligatorio y permitir que los apoderados retiren a sus hijos de módulos específicos." },
+      { "label": "D", "text": "Crear el programa en conjunto con apoderados, docentes y estudiantes para llegar a un consenso." }
+    ]
+  },
+  {
+    "id": 14,
+    "headline": "Migrantes sin papeles necesitan atención médica",
+    "scenario": "Chile recibe una ola migratoria importante. Se debate si los migrantes sin documentos regularizados deben tener acceso gratuito al sistema de salud pública.",
+    "options": [
+      { "label": "A", "text": "Garantizar acceso gratuito a salud para todos, sin importar su situación migratoria, porque la salud es un derecho humano." },
+      { "label": "B", "text": "Limitar el acceso a urgencias únicamente, y exigir regularización para atención completa." },
+      { "label": "C", "text": "Crear un sistema de salud paralelo financiado con cooperación internacional para atender a migrantes no regularizados." },
+      { "label": "D", "text": "Facilitar procesos de regularización rápida para que accedan al sistema como cualquier residente legal." }
+    ]
+  },
+  {
+    "id": 15,
+    "headline": "¿Menores al banquillo a los 12 años?",
+    "scenario": "Se propone bajar la edad de responsabilidad penal adolescente de 14 a 12 años, ante el aumento de delitos cometidos por menores de edad.",
+    "options": [
+      { "label": "A", "text": "Bajar la edad, porque si una persona comete un delito grave, debe enfrentar consecuencias sin importar la edad." },
+      { "label": "B", "text": "Mantener la edad actual y fortalecer los programas de prevención y reinserción para menores." },
+      { "label": "C", "text": "No bajar la edad pero crear un sistema especial de medidas socioeducativas para menores de 14 años." },
+      { "label": "D", "text": "Abordar las causas de fondo: pobreza, abandono y falta de oportunidades que llevan a menores a delinquir." }
+    ]
+  },
+  {
+    "id": 16,
+    "headline": "Parque eólico molesta a los vecinos",
+    "scenario": "Una comuna rural quiere construir un parque eólico que generaría energía limpia para miles de hogares, pero los vecinos se quejan del impacto visual y el ruido que generarían las turbinas.",
+    "options": [
+      { "label": "A", "text": "Construir el parque eólico, porque la transición energética es más importante que las molestias locales." },
+      { "label": "B", "text": "Cancelar el proyecto y buscar alternativas energéticas que no afecten a los vecinos." },
+      { "label": "C", "text": "Construirlo con compensaciones económicas para los vecinos afectados y distancias mínimas de las viviendas." },
+      { "label": "D", "text": "Someter el proyecto a un plebiscito comunal y respetar la decisión de la mayoría." }
+    ]
+  },
+  {
+    "id": 17,
+    "headline": "Transporte público gratis para todos",
+    "scenario": "El gobierno quiere implementar un sistema de transporte público gratuito financiado con impuestos, similar a lo que han hecho algunas ciudades europeas.",
+    "options": [
+      { "label": "A", "text": "Implementar transporte gratuito universal, porque mejora la calidad de vida y reduce la contaminación." },
+      { "label": "B", "text": "Mantener el sistema de tarifas, porque lo gratuito se desfinancia y pierde calidad con el tiempo." },
+      { "label": "C", "text": "Hacer gratuito el transporte solo para estudiantes, adultos mayores y personas en situación de vulnerabilidad." },
+      { "label": "D", "text": "Reducir las tarifas significativamente y mejorar la calidad del servicio en vez de hacerlo gratuito." }
+    ]
+  },
+  {
+    "id": 18,
+    "headline": "Políticos obligados a declarar su patrimonio",
+    "scenario": "Un candidato propone que todos los funcionarios públicos, incluyendo alcaldes y parlamentarios, declaren públicamente su patrimonio y el de sus familiares directos cada año.",
+    "options": [
+      { "label": "A", "text": "Apoyar la medida, porque la transparencia total es necesaria para combatir la corrupción." },
+      { "label": "B", "text": "Rechazarla, porque los familiares tienen derecho a la privacidad y no eligieron ser funcionarios públicos." },
+      { "label": "C", "text": "Exigir declaración patrimonial solo a los funcionarios, no a sus familiares." },
+      { "label": "D", "text": "Hacer las declaraciones obligatorias pero ante un organismo fiscalizador, no de forma pública." }
+    ]
+  },
+  {
+    "id": 19,
+    "headline": "Cannabis legal: ¿regulación o prohibición?",
+    "scenario": "Se debate si Chile debería legalizar el cultivo y venta regulada de cannabis para uso recreativo en mayores de 18 años.",
+    "options": [
+      { "label": "A", "text": "Legalizar y regular, porque la prohibición no ha funcionado y la regulación permite controlar calidad y recaudar impuestos." },
+      { "label": "B", "text": "Mantener la prohibición, porque legalizar envía un mensaje erróneo sobre el consumo de drogas." },
+      { "label": "C", "text": "Despenalizar el consumo personal y el autocultivo, pero no permitir la venta comercial." },
+      { "label": "D", "text": "Legalizar solo el uso medicinal con receta médica y mantener la prohibición para uso recreativo." }
+    ]
+  },
+  {
+    "id": 20,
+    "headline": "Internet gratis a cambio de datos escolares",
+    "scenario": "Una empresa de tecnología ofrece instalar internet gratuito de alta velocidad en todas las escuelas públicas de una región, pero a cambio quiere recopilar datos de navegación de los estudiantes para fines comerciales.",
+    "options": [
+      { "label": "A", "text": "Aceptar la oferta, porque el acceso a internet es fundamental y los datos recopilados no son tan sensibles." },
+      { "label": "B", "text": "Rechazar la oferta, porque los datos de menores de edad no pueden ser mercancía." },
+      { "label": "C", "text": "Negociar para que la empresa instale internet pero sin recopilar datos de los estudiantes, ofreciendo otro tipo de beneficio." },
+      { "label": "D", "text": "Aceptar con condiciones: datos anonimizados, consentimiento de apoderados y supervisión de un ente público." }
+    ]
+  },
+  {
+    "id": 21,
+    "headline": "Servicio militar obligatorio para jóvenes",
+    "scenario": "El gobierno propone crear un servicio militar obligatorio de 6 meses para todos los jóvenes de 18 años, hombres y mujeres, con opción de servicio civil alternativo.",
+    "options": [
+      { "label": "A", "text": "Apoyar el servicio obligatorio, porque fomenta la disciplina, la cohesión social y el sentido de deber cívico." },
+      { "label": "B", "text": "Rechazarlo, porque obligar a alguien a servir en las fuerzas armadas vulnera la libertad individual." },
+      { "label": "C", "text": "Crear un servicio civil obligatorio enfocado en trabajo comunitario, no militar." },
+      { "label": "D", "text": "Mantener el servicio militar voluntario pero con mejores incentivos como becas y formación técnica." }
+    ]
+  },
+  {
+    "id": 22,
+    "headline": "Turismo amenaza zona costera protegida",
+    "scenario": "Una zona costera protegida por su biodiversidad es reclamada para construir un complejo turístico que traería desarrollo económico a una comuna con altos índices de pobreza.",
+    "options": [
+      { "label": "A", "text": "Proteger la zona costera, porque la biodiversidad es irremplazable y debe preservarse." },
+      { "label": "B", "text": "Permitir la construcción del complejo turístico, porque el desarrollo económico de la comuna es urgente." },
+      { "label": "C", "text": "Permitir un proyecto turístico de menor escala que sea compatible con la conservación de la biodiversidad." },
+      { "label": "D", "text": "Desarrollar ecoturismo comunitario gestionado por los propios habitantes, sin grandes inversiones externas." }
+    ]
+  },
+  {
+    "id": 23,
+    "headline": "Cuotas universitarias para pueblos originarios",
+    "scenario": "Se propone que las universidades estatales reserven un 15% de sus cupos para estudiantes de pueblos originarios, independientemente de su puntaje en la prueba de acceso.",
+    "options": [
+      { "label": "A", "text": "Implementar la cuota, porque es una medida de reparación histórica ante siglos de exclusión." },
+      { "label": "B", "text": "Rechazar las cuotas, porque todos deben competir en igualdad de condiciones basándose en el mérito." },
+      { "label": "C", "text": "Crear programas propedéuticos y de nivelación que preparen a estudiantes de pueblos originarios para ingresar por vía regular." },
+      { "label": "D", "text": "Implementar cuotas más pequeñas combinadas con becas y apoyo académico permanente durante la carrera." }
+    ]
+  },
+  {
+    "id": 24,
+    "headline": "Privatización de la basura en debate",
+    "scenario": "El alcalde propone privatizar el servicio de recolección de basura de la comuna para reducir costos municipales. Actualmente el servicio lo realizan trabajadores municipales.",
+    "options": [
+      { "label": "A", "text": "Privatizar el servicio, porque la competencia privada suele ser más eficiente y reduce costos." },
+      { "label": "B", "text": "Mantener el servicio municipal, porque protege los empleos y asegura control público sobre un servicio esencial." },
+      { "label": "C", "text": "Crear un modelo mixto donde la municipalidad supervise y una empresa privada ejecute, garantizando derechos laborales." },
+      { "label": "D", "text": "Modernizar el servicio municipal actual para hacerlo más eficiente sin necesidad de privatizar." }
+    ]
+  },
+  {
+    "id": 25,
+    "headline": "Reconstruir en zona de riesgo sísmico",
+    "scenario": "Tras un terremoto, el gobierno debe decidir cómo reconstruir una ciudad. Los expertos recomiendan no reconstruir en las zonas de mayor riesgo, pero muchas familias quieren volver a sus terrenos originales.",
+    "options": [
+      { "label": "A", "text": "Prohibir la reconstrucción en zonas de riesgo y reubicar a las familias en terrenos seguros." },
+      { "label": "B", "text": "Permitir que las familias reconstruyan donde quieran, respetando su derecho a decidir dónde vivir." },
+      { "label": "C", "text": "Reconstruir en las zonas de riesgo pero con infraestructura antisísmica reforzada." },
+      { "label": "D", "text": "Ofrecer incentivos económicos atractivos para que las familias elijan voluntariamente reubicarse." }
+    ]
+  },
+  {
+    "id": 26,
+    "headline": "Uniforme escolar: ¿igualdad o libertad?",
+    "scenario": "Se debate si los colegios públicos deben tener un uniforme escolar obligatorio o si los estudiantes deberían poder vestir libremente.",
+    "options": [
+      { "label": "A", "text": "Mantener el uniforme obligatorio, porque iguala las diferencias socioeconómicas entre estudiantes." },
+      { "label": "B", "text": "Eliminar el uniforme, porque la vestimenta es una forma de expresión personal que debe respetarse." },
+      { "label": "C", "text": "Mantener un código de vestimenta básico pero flexible, sin exigir uniforme específico." },
+      { "label": "D", "text": "Dejar que cada comunidad escolar decida democráticamente si usa o no uniforme." }
+    ]
+  },
+  {
+    "id": 27,
+    "headline": "Drones reemplazan a los repartidores",
+    "scenario": "Una empresa de delivery propone operar con drones autónomos en zonas urbanas, lo que reduciría costos y tiempos de entrega pero eliminaría empleos de repartidores.",
+    "options": [
+      { "label": "A", "text": "Permitir los drones, porque la innovación tecnológica no debe frenarse y beneficia a los consumidores." },
+      { "label": "B", "text": "Prohibir los drones de delivery para proteger los empleos de los repartidores." },
+      { "label": "C", "text": "Permitirlos con un impuesto especial que financie la reconversión laboral de los repartidores afectados." },
+      { "label": "D", "text": "Permitir los drones solo en zonas rurales o de difícil acceso, manteniendo repartidores humanos en ciudades." }
+    ]
+  },
+  {
+    "id": 28,
+    "headline": "Renta básica universal para Chile",
+    "scenario": "Se propone establecer una renta básica universal en Chile: un monto mensual que el Estado pagaría a todos los ciudadanos sin condiciones ni requisitos.",
+    "options": [
+      { "label": "A", "text": "Implementar la renta básica universal, porque garantiza un piso mínimo de dignidad para todos." },
+      { "label": "B", "text": "Rechazarla, porque desincentiva el trabajo y el costo fiscal es insostenible." },
+      { "label": "C", "text": "Implementar una renta básica solo para personas en situación de vulnerabilidad, no universal." },
+      { "label": "D", "text": "En vez de renta básica, garantizar servicios públicos gratuitos de calidad: salud, educación, transporte y vivienda." }
+    ]
+  },
+  {
+    "id": 29,
+    "headline": "Extremistas en televisión abierta",
+    "scenario": "Un canal de televisión abierta transmite un programa de debate político donde se invita a representantes de todas las tendencias, incluyendo grupos considerados extremistas por algunos sectores.",
+    "options": [
+      { "label": "A", "text": "Permitir la participación de todos, porque la libertad de expresión incluye ideas que no nos gustan." },
+      { "label": "B", "text": "Excluir a grupos extremistas, porque darles plataforma normaliza discursos de odio." },
+      { "label": "C", "text": "Incluirlos pero con moderación estricta que confronte y cuestione las ideas extremas." },
+      { "label": "D", "text": "Dejar que el canal decida libremente su línea editorial sin intervención estatal." }
+    ]
+  },
+  {
+    "id": 30,
+    "headline": "Pueblos originarios entran al currículum escolar",
+    "scenario": "El gobierno propone que la asignatura de Historia y Ciencias Sociales incluya obligatoriamente la historia y cultura de los pueblos originarios de Chile en al menos un 30% del currículum.",
+    "options": [
+      { "label": "A", "text": "Apoyar la medida, porque los pueblos originarios son parte fundamental de la identidad chilena y su historia ha sido invisibilizada." },
+      { "label": "B", "text": "Rechazarla, porque el currículum debe cubrir historia universal y nacional de forma equilibrada sin cuotas." },
+      { "label": "C", "text": "Crear una asignatura separada dedicada exclusivamente a pueblos originarios." },
+      { "label": "D", "text": "Integrar la historia de pueblos originarios de forma transversal en todas las asignaturas, no solo en Historia." }
+    ]
+  },
+  {
+    "id": 31,
+    "headline": "Crisis del agua: ¿bien público o privado?",
+    "scenario": "Una crisis hídrica severa afecta al centro de Chile. Se debate si el agua debe ser declarada un bien de uso público o si debe mantenerse el sistema actual de derechos de agua privados.",
+    "options": [
+      { "label": "A", "text": "Declarar el agua como bien de uso público y eliminar los derechos de agua privados." },
+      { "label": "B", "text": "Mantener los derechos de agua privados, porque permiten inversión eficiente en infraestructura hídrica." },
+      { "label": "C", "text": "Priorizar el consumo humano y la agricultura familiar, pero permitir derechos privados para uso industrial." },
+      { "label": "D", "text": "Crear una entidad pública que administre el agua y otorgue concesiones temporales renovables." }
+    ]
+  },
+  {
+    "id": 32,
+    "headline": "Voto obligatorio vuelve a la mesa",
+    "scenario": "Se propone que las elecciones en Chile vuelvan a tener voto obligatorio con multas para quienes no asistan a votar, ante la baja participación electoral.",
+    "options": [
+      { "label": "A", "text": "Restablecer el voto obligatorio, porque la democracia se fortalece con la participación de todos." },
+      { "label": "B", "text": "Mantener el voto voluntario, porque obligar a votar vulnera la libertad individual." },
+      { "label": "C", "text": "Hacer el voto obligatorio pero sin multas, como un deber cívico sin sanción." },
+      { "label": "D", "text": "Mantener el voto voluntario pero facilitar el proceso: voto electrónico, más locales y días de votación." }
+    ]
+  },
+  {
+    "id": 33,
+    "headline": "Escasez de órganos: ¿quién tiene prioridad?",
+    "scenario": "Un hospital público debe decidir cómo asignar un número limitado de órganos para trasplante. Se propone un sistema basado exclusivamente en criterios médicos, pero algunos argumentan que también deberían considerarse factores como la edad o las responsabilidades familiares.",
+    "options": [
+      { "label": "A", "text": "Asignar solo por criterios médicos estrictos: urgencia y compatibilidad." },
+      { "label": "B", "text": "Incluir factores sociales como edad, hijos dependientes y aporte a la comunidad." },
+      { "label": "C", "text": "Usar criterios médicos como base pero con un comité de ética que resuelva casos difíciles." },
+      { "label": "D", "text": "Invertir masivamente en prevención y tecnología para que la escasez de órganos deje de ser un problema." }
+    ]
+  },
+  {
+    "id": 34,
+    "headline": "Impuesto al patrimonio de los más ricos",
+    "scenario": "Se propone que Chile implemente un impuesto progresivo al patrimonio: mientras más bienes y propiedades posee una persona, mayor porcentaje paga anualmente.",
+    "options": [
+      { "label": "A", "text": "Implementarlo, porque la concentración de riqueza es un problema grave y el impuesto redistribuye de forma justa." },
+      { "label": "B", "text": "Rechazarlo, porque desincentivaría el ahorro y la inversión, y podría generar fuga de capitales." },
+      { "label": "C", "text": "Aplicarlo solo a los grandes patrimonios, con un umbral alto que no afecte a la clase media." },
+      { "label": "D", "text": "En vez de impuesto al patrimonio, mejorar la fiscalización para que los más ricos paguen efectivamente los impuestos que ya existen." }
+    ]
+  },
+  {
+    "id": 35,
+    "headline": "Luminarias o posta: el barrio debe elegir",
+    "scenario": "Un municipio quiere instalar luminarias solares en un barrio vulnerable que actualmente no tiene buena iluminación nocturna. Sin embargo, los fondos también podrían usarse para mejorar la posta de salud del mismo barrio.",
+    "options": [
+      { "label": "A", "text": "Priorizar la iluminación, porque la seguridad es una necesidad básica que afecta la vida diaria de todos." },
+      { "label": "B", "text": "Priorizar la posta de salud, porque la atención médica es más urgente e impacta directamente en vidas." },
+      { "label": "C", "text": "Hacer una asamblea vecinal para que el barrio decida colectivamente la prioridad." },
+      { "label": "D", "text": "Buscar financiamiento complementario a través del gobierno regional para ejecutar ambos proyectos." }
+    ]
+  },
+  {
+    "id": 36,
+    "headline": "Energía nuclear en un país sísmico",
+    "scenario": "Se debate si Chile debe permitir la instalación de centrales nucleares para generar energía limpia y estable, considerando que el país es altamente sísmico.",
+    "options": [
+      { "label": "A", "text": "Permitirlas, porque la energía nuclear es limpia y la tecnología moderna es segura incluso en zonas sísmicas." },
+      { "label": "B", "text": "Prohibirlas, porque el riesgo sísmico hace que el costo de un accidente nuclear sea inaceptable." },
+      { "label": "C", "text": "Invertir primero en investigación y formar profesionales, evaluando la opción nuclear a largo plazo." },
+      { "label": "D", "text": "Enfocarse exclusivamente en energías renovables como solar, eólica y geotérmica, que Chile tiene en abundancia." }
+    ]
+  },
+  {
+    "id": 37,
+    "headline": "Ciberacoso escolar fuera del colegio",
+    "scenario": "Un colegio descubre que un estudiante publicó comentarios ofensivos y discriminatorios contra compañeros en sus redes sociales personales, fuera del horario escolar.",
+    "options": [
+      { "label": "A", "text": "Sancionar al estudiante, porque la discriminación debe tener consecuencias aunque ocurra fuera del colegio." },
+      { "label": "B", "text": "No intervenir, porque lo que ocurre fuera del colegio no es responsabilidad de la institución." },
+      { "label": "C", "text": "No sancionar pero implementar un programa de mediación y educación sobre respeto y diversidad." },
+      { "label": "D", "text": "Convocar a una reunión con el estudiante, sus apoderados y los afectados para buscar una solución reparatoria." }
+    ]
+  },
+  {
+    "id": 38,
+    "headline": "Límite a la reelección parlamentaria",
+    "scenario": "Se propone que los parlamentarios chilenos tengan un límite de dos períodos consecutivos en el cargo, para evitar el enquistamiento en el poder.",
+    "options": [
+      { "label": "A", "text": "Apoyar el límite, porque la renovación política es saludable para la democracia." },
+      { "label": "B", "text": "Rechazarlo, porque los votantes deben poder reelegir a quien haga un buen trabajo cuantas veces quieran." },
+      { "label": "C", "text": "Establecer un límite de tres períodos para permitir continuidad pero evitar carreras políticas eternas." },
+      { "label": "D", "text": "En vez de limitar períodos, mejorar los mecanismos de fiscalización ciudadana y rendición de cuentas." }
+    ]
+  },
+  {
+    "id": 39,
+    "headline": "Pesca industrial arrincona a los artesanales",
+    "scenario": "Una comunidad de pescadores artesanales se ve amenazada por la expansión de la pesca industrial en su zona de operación tradicional.",
+    "options": [
+      { "label": "A", "text": "Crear zonas exclusivas de pesca artesanal donde la industria no pueda operar." },
+      { "label": "B", "text": "Permitir la libre competencia, porque la pesca industrial es más eficiente y alimenta a más personas." },
+      { "label": "C", "text": "Establecer cuotas diferenciadas que protejan un porcentaje de la captura para pescadores artesanales." },
+      { "label": "D", "text": "Apoyar a los pescadores artesanales para que se modernicen y formen cooperativas más competitivas." }
+    ]
+  },
+  {
+    "id": 40,
+    "headline": "Crédito social: ¿premio o vigilancia?",
+    "scenario": "El gobierno evalúa implementar un sistema de crédito social donde el comportamiento cívico de las personas (pagar impuestos, no tener multas, hacer voluntariado) se registre y genere beneficios o restricciones.",
+    "options": [
+      { "label": "A", "text": "Implementarlo, porque premia el buen comportamiento cívico y desincentiva las conductas negativas." },
+      { "label": "B", "text": "Rechazarlo completamente, porque es un sistema de vigilancia y control incompatible con la democracia." },
+      { "label": "C", "text": "Crear un sistema solo de incentivos positivos, sin restricciones ni castigos." },
+      { "label": "D", "text": "Fortalecer la educación cívica en vez de crear mecanismos de control del comportamiento ciudadano." }
+    ]
+  },
+  {
+    "id": 41,
+    "headline": "Detectores de metales en los liceos",
+    "scenario": "Un grupo de padres solicita que se instale un detector de metales en la entrada de un liceo tras un incidente de violencia escolar con arma blanca.",
+    "options": [
+      { "label": "A", "text": "Instalar detectores de metales, porque la seguridad de los estudiantes es la máxima prioridad." },
+      { "label": "B", "text": "No instalarlos, porque criminaliza a los estudiantes y genera un ambiente de desconfianza." },
+      { "label": "C", "text": "Implementar un plan integral de convivencia escolar con psicólogos y mediadores en vez de medidas de seguridad." },
+      { "label": "D", "text": "Instalar medidas de seguridad temporales mientras se implementan programas de prevención de la violencia." }
+    ]
+  },
+  {
+    "id": 42,
+    "headline": "Cirugías estéticas en hospitales públicos",
+    "scenario": "Se debate si los hospitales públicos deben ofrecer cirugías estéticas gratuitas cuando afectan significativamente la salud mental del paciente, aunque no sean médicamente necesarias.",
+    "options": [
+      { "label": "A", "text": "Ofrecerlas, porque la salud mental es tan importante como la física y el sufrimiento emocional es real." },
+      { "label": "B", "text": "No ofrecerlas, porque los recursos públicos deben destinarse a enfermedades y urgencias médicas." },
+      { "label": "C", "text": "Evaluar caso a caso con un equipo multidisciplinario que incluya psicólogos y psiquiatras." },
+      { "label": "D", "text": "Invertir en salud mental con terapia y tratamiento psicológico, no en cirugías estéticas." }
+    ]
+  },
+  {
+    "id": 43,
+    "headline": "Estudiantes quieren voz en el municipio",
+    "scenario": "Se propone que los estudiantes de enseñanza media elijan a un representante con voz pero sin voto en el consejo municipal de su comuna.",
+    "options": [
+      { "label": "A", "text": "Apoyar la propuesta, porque los jóvenes deben participar en las decisiones que les afectan." },
+      { "label": "B", "text": "Rechazarla, porque los menores de edad no tienen la madurez suficiente para participar en decisiones políticas complejas." },
+      { "label": "C", "text": "Darle voz y voto al representante estudiantil, porque participar sin poder de decisión es simbólico e insuficiente." },
+      { "label": "D", "text": "Crear un consejo juvenil comunal paralelo que presente propuestas al consejo municipal de forma periódica." }
+    ]
+  },
+  {
+    "id": 44,
+    "headline": "Comida rápida se instala frente al colegio",
+    "scenario": "Una cadena de comida rápida quiere instalarse frente a un colegio. Algunos vecinos la reciben con agrado por la comodidad, mientras otros se oponen por el impacto en la alimentación de los estudiantes.",
+    "options": [
+      { "label": "A", "text": "Prohibir locales de comida rápida en un radio cercano a los colegios para proteger la salud de los estudiantes." },
+      { "label": "B", "text": "Permitir la instalación, porque restringir el comercio legal es una medida paternalista." },
+      { "label": "C", "text": "Permitirla pero exigir que el local incluya opciones saludables en su menú." },
+      { "label": "D", "text": "Mejorar la alimentación dentro de los colegios con programas nutricionales y dejar que el comercio exterior funcione libremente." }
+    ]
+  },
+  {
+    "id": 45,
+    "headline": "Chile debate cambiar su sistema de gobierno",
+    "scenario": "Se propone que Chile adopte un sistema de gobierno semipresidencial, donde el poder ejecutivo se comparta entre un presidente y un primer ministro elegido por el Congreso.",
+    "options": [
+      { "label": "A", "text": "Adoptar el sistema semipresidencial, porque distribuye mejor el poder y reduce el riesgo de autoritarismo." },
+      { "label": "B", "text": "Mantener el sistema presidencial actual, porque Chile necesita un liderazgo ejecutivo fuerte y claro." },
+      { "label": "C", "text": "Fortalecer el rol del Congreso dentro del sistema actual sin cambiar a un modelo semipresidencial." },
+      { "label": "D", "text": "Realizar un plebiscito para que la ciudadanía decida qué sistema de gobierno prefiere." }
+    ]
+  },
+  {
+    "id": 46,
+    "headline": "IA discrimina en subsidios de vivienda",
+    "scenario": "Un algoritmo de inteligencia artificial es utilizado por una municipalidad para decidir qué familias reciben subsidios de vivienda, basándose en datos socioeconómicos. Se descubre que el algoritmo discrimina involuntariamente a ciertos grupos.",
+    "options": [
+      { "label": "A", "text": "Suspender el uso del algoritmo y volver a la evaluación humana tradicional." },
+      { "label": "B", "text": "Corregir el algoritmo y seguir usándolo, porque a largo plazo las decisiones automatizadas son más justas que las humanas." },
+      { "label": "C", "text": "Usar el algoritmo como herramienta de apoyo, pero que la decisión final siempre sea de funcionarios humanos." },
+      { "label": "D", "text": "Crear un comité ciudadano que audite regularmente el algoritmo y apruebe sus criterios." }
+    ]
+  },
+  {
+    "id": 47,
+    "headline": "Militares a patrullar las calles",
+    "scenario": "Se debate si las Fuerzas Armadas de Chile deben poder participar en labores de seguridad interior, como patrullaje en zonas de alta criminalidad, o si esa función debe ser exclusivamente de Carabineros.",
+    "options": [
+      { "label": "A", "text": "Permitir la participación militar en seguridad interior cuando la situación lo requiera, porque la seguridad ciudadana es prioridad." },
+      { "label": "B", "text": "Mantener la separación estricta, porque la militarización de la seguridad interna es peligrosa para la democracia." },
+      { "label": "C", "text": "Permitirlo solo en situaciones excepcionales y con autorización del Congreso." },
+      { "label": "D", "text": "Fortalecer a Carabineros con más recursos y formación en vez de recurrir a las Fuerzas Armadas." }
+    ]
+  },
+  {
+    "id": 48,
+    "headline": "Cuota femenina obligatoria en directorios",
+    "scenario": "Se propone que las empresas con más de 100 trabajadores estén obligadas a tener al menos un 40% de mujeres en sus directorios.",
+    "options": [
+      { "label": "A", "text": "Aprobar la cuota, porque sin medidas concretas la brecha de género en cargos directivos no se cierra." },
+      { "label": "B", "text": "Rechazar las cuotas, porque los cargos directivos deben llenarse por mérito, no por género." },
+      { "label": "C", "text": "Crear incentivos tributarios para empresas que voluntariamente aumenten la presencia femenina en directorios." },
+      { "label": "D", "text": "Invertir en formación y mentoría de mujeres líderes para que la representación aumente orgánicamente." }
+    ]
+  },
+  {
+    "id": 49,
+    "headline": "Río contaminado y nadie se hace cargo",
+    "scenario": "Un río contaminado por desechos industriales atraviesa tres comunas. Cada municipalidad culpa a las otras y ninguna asume la responsabilidad de la limpieza.",
+    "options": [
+      { "label": "A", "text": "Que el gobierno central intervenga, asuma el costo y sancione a las empresas contaminantes." },
+      { "label": "B", "text": "Obligar a las tres comunas a crear un consorcio y financiar la limpieza proporcionalmente." },
+      { "label": "C", "text": "Aplicar el principio de que quien contamina paga: identificar las empresas responsables y obligarlas a remediar." },
+      { "label": "D", "text": "Crear una autoridad regional del agua con poder para fiscalizar, sancionar y coordinar la descontaminación." }
+    ]
+  },
+  {
+    "id": 50,
+    "headline": "¿Adiós a las notas en los colegios?",
+    "scenario": "Se propone reemplazar las notas numéricas en la educación básica y media por un sistema de evaluación cualitativa que describa habilidades y avances sin calificaciones.",
+    "options": [
+      { "label": "A", "text": "Implementar la evaluación cualitativa, porque las notas generan estrés y no reflejan el aprendizaje real." },
+      { "label": "B", "text": "Mantener las notas, porque son un sistema claro y objetivo que prepara para la vida laboral y universitaria." },
+      { "label": "C", "text": "Implementar evaluación cualitativa en básica y mantener notas en media para la transición a la educación superior." },
+      { "label": "D", "text": "Combinar ambos sistemas: notas numéricas acompañadas de informes cualitativos detallados." }
+    ]
+  },
+  {
+    "id": 51,
+    "headline": "Extranjeros podrían votar en municipales",
+    "scenario": "Se debate si Chile debería otorgar derecho a voto en elecciones municipales a los residentes extranjeros que lleven más de dos años viviendo legalmente en el país.",
+    "options": [
+      { "label": "A", "text": "Otorgar el derecho a voto, porque quienes viven y contribuyen en una comuna deben poder participar en sus decisiones." },
+      { "label": "B", "text": "Negar el derecho a voto, porque votar es un privilegio exclusivo de los ciudadanos chilenos." },
+      { "label": "C", "text": "Permitir el voto solo en elecciones municipales, no en presidenciales ni parlamentarias." },
+      { "label": "D", "text": "Facilitar y agilizar los procesos de nacionalización para que los extranjeros puedan votar como ciudadanos plenos." }
+    ]
+  }
+]

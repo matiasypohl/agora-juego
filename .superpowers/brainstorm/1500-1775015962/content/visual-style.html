@@ -1,0 +1,54 @@
+<h2>¿Qué personalidad visual quieres para la app?</h2>
+<p class="subtitle">Elige el estilo que mejor represente la experiencia que quieres dar a los estudiantes</p>
+
+<div class="cards">
+  <div class="card" data-choice="electoral" onclick="toggleSelect(this)">
+    <div class="card-image" style="background: linear-gradient(135deg, #1a3a5c 0%, #2d6a9f 100%); padding: 20px; border-radius: 8px 8px 0 0; display:flex; align-items:center; justify-content:center; min-height:120px;">
+      <div style="text-align:center; color:white;">
+        <div style="font-size:2rem; margin-bottom:8px;">🗳️</div>
+        <div style="font-size:0.8rem; letter-spacing:3px; text-transform:uppercase; opacity:0.8;">ELECCIONES 2025</div>
+        <div style="width:60px; height:3px; background:white; margin:8px auto; opacity:0.6;"></div>
+        <div style="font-size:1rem; font-weight:bold;">CANDIDATO A</div>
+        <div style="font-size:0.75rem; opacity:0.7;">Partido Democrático</div>
+      </div>
+    </div>
+    <div class="card-body">
+      <h3>Institucional / Electoral</h3>
+      <p>Azules oficiales, paleta seria. Se siente como una plataforma de elecciones real. Alta credibilidad educativa.</p>
+    </div>
+  </div>
+
+  <div class="card" data-choice="game" onclick="toggleSelect(this)">
+    <div class="card-image" style="background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%); padding: 20px; border-radius: 8px 8px 0 0; display:flex; align-items:center; justify-content:center; min-height:120px; position:relative; overflow:hidden;">
+      <div style="position:absolute; top:10px; left:10px; right:10px; bottom:10px; border:1px solid rgba(255,215,0,0.3); border-radius:6px;"></div>
+      <div style="text-align:center; color:white; position:relative; z-index:1;">
+        <div style="font-size:0.6rem; letter-spacing:2px; color:#ffd700; text-transform:uppercase; margin-bottom:4px;">✦ CARTA ESPECIAL ✦</div>
+        <div style="font-size:1.1rem; font-weight:bold; color:#ffd700;">FAKE NEWS</div>
+        <div style="font-size:0.7rem; opacity:0.7; margin-top:4px;">Anula una carta jugada</div>
+        <div style="font-size:1.5rem; margin-top:8px;">📰</div>
+      </div>
+    </div>
+    <div class="card-body">
+      <h3>Juego de Cartas</h3>
+      <p>Oscuro y dramático, inspirado en TCG modernos. Las cartas tienen identidad visual fuerte. Más atractivo para estudiantes.</p>
+    </div>
+  </div>
+
+  <div class="card" data-choice="hybrid" onclick="toggleSelect(this)">
+    <div class="card-image" style="background: linear-gradient(135deg, #2d5016 0%, #4a7c2b 50%, #6aab3a 100%); padding: 20px; border-radius: 8px 8px 0 0; display:flex; align-items:center; justify-content:center; min-height:120px;">
+      <div style="text-align:center; color:white;">
+        <div style="font-size:2rem; margin-bottom:4px;">⚖️</div>
+        <div style="background:rgba(255,255,255,0.15); border-radius:20px; padding:4px 12px; font-size:0.75rem; font-weight:bold; letter-spacing:1px; text-transform:uppercase; margin-bottom:6px;">ELECTE</div>
+        <div style="font-size:0.8rem; opacity:0.9;">Educación Cívica</div>
+        <div style="display:flex; gap:6px; justify-content:center; margin-top:8px;">
+          <div style="background:rgba(255,255,255,0.2); border-radius:4px; padding:2px 8px; font-size:0.65rem;">🗳 Votos: 12</div>
+          <div style="background:rgba(255,255,255,0.2); border-radius:4px; padding:2px 8px; font-size:0.65rem;">🃏 Mano: 4</div>
+        </div>
+      </div>
+    </div>
+    <div class="card-body">
+      <h3>Híbrido Cívico-Lúdico</h3>
+      <p>Verde y fresco. Mezcla la seriedad del civismo con la energía del juego. Identidad propia, no imita nada existente.</p>
+    </div>
+  </div>
+</div>

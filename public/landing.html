@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ÁGORA — Participar también se entrena.</title>
+  <meta name="description" content="ÁGORA es un juego de educación cívica para la sala de clases donde candidatos debaten dilemas reales y ciudadanos votan, deliberan y usan cartas de estrategia para influir en el resultado.">
+  <link rel="stylesheet" href="/css/main.css">
+  <link rel="stylesheet" href="/css/landing.css">
+</head>
+<body class="landing-body">
+
+  <!-- ── NAVBAR ─────────────────────────────────────────────── -->
+  <nav class="landing-nav" id="landing-nav" role="navigation" aria-label="Navegación principal">
+    <a href="/" class="landing-nav__logo" aria-label="ÁGORA — Inicio">🏛️ ÁGORA</a>
+    <div class="landing-nav__actions">
+      <a href="/teacher" class="landing-nav__link">Panel profesor</a>
+      <a href="/play" class="btn btn-primary btn-small">Unirse →</a>
+    </div>
+  </nav>
+
+  <!-- ── HERO ───────────────────────────────────────────────── -->
+  <section class="hero" id="hero" aria-label="Presentación del juego">
+    <canvas id="hero-canvas" class="hero__canvas" aria-hidden="true"></canvas>
+
+    <div class="hero__parallax-layer hero__parallax-layer--back" data-parallax-speed="0.15" aria-hidden="true"></div>
+    <div class="hero__parallax-layer hero__parallax-layer--mid"  data-parallax-speed="0.30" aria-hidden="true"></div>
+
+    <div class="hero__content" data-parallax-speed="0.05">
+      <p class="hero__eyebrow reveal-on-scroll">Educación cívica en juego</p>
+
+      <h1 class="hero__title reveal-on-scroll">
+        <span class="hero__logo-text">🏛️ ÁGORA</span>
+        <span class="hero__tagline">Participar también<br>se entrena.</span>
+      </h1>
+
+      <p class="hero__description reveal-on-scroll">
+        Un juego de roles para la sala de clases donde candidatos debaten dilemas
+        cívicos reales y ciudadanos votan, deliberan y usan cartas de estrategia
+        para influir en el resultado.
+      </p>
+
+      <div class="hero__ctas reveal-on-scroll">
+        <a href="/teacher" class="btn btn-primary hero__cta-btn">
+          Soy profesor →
+        </a>
+        <a href="/play" class="btn hero__cta-btn hero__cta-btn--accent">
+          Unirse a partida →
+        </a>
+      </div>
+
+      <div class="hero__scroll-hint reveal-on-scroll" aria-hidden="true">
+        <span class="hero__scroll-arrow"></span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── CÓMO FUNCIONA ───────────────────────────────────────── -->
+  <section class="how-it-works" id="como-funciona" aria-labelledby="how-title">
+    <div class="landing-container">
+      <h2 class="section-title reveal-on-scroll" id="how-title">¿Cómo funciona?</h2>
+      <p class="section-subtitle reveal-on-scroll">
+        Tres fases que convierten el aula en una arena política real.
+      </p>
+
+      <div class="steps-grid">
+
+        <article class="step-card reveal-on-scroll" data-delay="0">
+          <div class="step-card__number">01</div>
+          <div class="step-card__icon" aria-hidden="true">📋</div>
+          <h3 class="step-card__title">Agenda</h3>
+          <p class="step-card__desc">
+            Un ciudadano elige el dilema del turno: Normal, Escándalo con
+            multiplicador ×2 o Debate entre candidatos. El candidato expone
+            su postura ante todos.
+          </p>
+        </article>
+
+        <article class="step-card reveal-on-scroll" data-delay="150">
+          <div class="step-card__number">02</div>
+          <div class="step-card__icon" aria-hidden="true">🗳️</div>
+          <h3 class="step-card__title">Votación</h3>
+          <p class="step-card__desc">
+            Los ciudadanos votan en secreto: aprueban, rechazan o se abstienen.
+            Los resultados se revelan simultáneamente — nadie sabe lo que
+            el otro decidió hasta el momento de la verdad.
+          </p>
+        </article>
+
+        <article class="step-card reveal-on-scroll" data-delay="300">
+          <div class="step-card__number">03</div>
+          <div class="step-card__icon" aria-hidden="true">🃏</div>
+          <h3 class="step-card__title">Estrategia</h3>
+          <p class="step-card__desc">
+            Cada ciudadano juega una carta: Respaldo, Censura o Coalición.
+            Las cartas modifican el puntaje final del candidato. La política
+            también tiene sus tácticas.
+          </p>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ── PARA QUIÉN ES ───────────────────────────────────────── -->
+  <section class="for-whom" id="para-quien" aria-labelledby="forwhom-title">
+    <div class="landing-container">
+      <h2 class="section-title reveal-on-scroll" id="forwhom-title">¿Para quién es?</h2>
+
+      <div class="for-whom__grid">
+
+        <div class="for-whom__card for-whom__card--teacher reveal-on-scroll">
+          <div class="for-whom__icon" aria-hidden="true">🧑‍🏫</div>
+          <h3>Para profesores</h3>
+          <p>Crea tu sala en segundos, asigna roles, configura las rondas
+             y observa el marcador en tiempo real desde el panel docente.
+             Sin instalaciones, directo desde el navegador.</p>
+          <a href="/teacher" class="btn btn-primary">Crear sala →</a>
+        </div>
+
+        <div class="for-whom__card for-whom__card--student reveal-on-scroll" data-delay="150">
+          <div class="for-whom__icon" aria-hidden="true">🧑‍🎓</div>
+          <h3>Para estudiantes</h3>
+          <p>Ingresa el código que te entregó tu profe, elige tu nombre
+             y empieza a jugar desde cualquier dispositivo con navegador.
+             Nada que descargar, nada que instalar.</p>
+          <a href="/play" class="btn hero__cta-btn--accent-solid">Unirse →</a>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ── QUIÉNES SOMOS ───────────────────────────────────────── -->
+  <section class="credits" id="quienes-somos" aria-labelledby="credits-title">
+    <div class="landing-container landing-container--narrow">
+      <h2 class="section-title reveal-on-scroll" id="credits-title">Quiénes somos</h2>
+      <p class="credits__text reveal-on-scroll">
+        ÁGORA nace de la convicción de que la educación cívica se aprende jugando,
+        debatiendo y tomando decisiones con consecuencias reales — aunque sea en
+        una sala de clases. Somos <em>[equipo / institución]</em>.
+      </p>
+      <p class="credits__text reveal-on-scroll" data-delay="100">
+        Desarrollado con Node.js, Socket.io y mucho café.
+        Diseñado para uso educativo en el aula chilena.
+      </p>
+    </div>
+  </section>
+
+  <!-- ── FOOTER ──────────────────────────────────────────────── -->
+  <footer class="landing-footer">
+    <div class="landing-container">
+      <span class="landing-footer__logo">🏛️ ÁGORA</span>
+      <span class="landing-footer__copy">Educación cívica en juego</span>
+      <nav class="landing-footer__links" aria-label="Links del footer">
+        <a href="/play">Unirse a partida</a>
+        <a href="/teacher">Panel profesor</a>
+      </nav>
+    </div>
+  </footer>
+
+  <script src="/js/landing.js"></script>
+</body>
+</html>

@@ -1,0 +1,45 @@
+<h2>3 Enfoques para construir ÁGORA</h2>
+<p class="subtitle">Cada enfoque tiene un alcance distinto. Elige el que mejor se ajuste a tus expectativas.</p>
+
+<div class="options">
+  <div class="option" data-choice="mvp" onclick="toggleSelect(this)">
+    <div class="letter">A</div>
+    <div class="content">
+      <h3>MVP Sólido — Juego completo, sin extras</h3>
+      <p><strong>Qué incluye:</strong> Lobby con código de sala (estilo Kahoot), roles dinámicos (Candidato, Ciudadano, Asesor), flujo completo de turnos con temporizadores, votación secreta, todas las cartas originales + 3 cartas digitales nuevas, tablero de puntaje en vivo, vista especial para el profesor.</p>
+      <p style="margin-top:8px;"><strong>Qué NO incluye:</strong> Historial de partidas, perfiles de estudiantes, métricas de participación.</p>
+      <div class="pros-cons" style="margin-top:10px;">
+        <div class="pros"><h4>Pros</h4><ul><li>Funciona rápido</li><li>Fácil de mantener</li><li>Enfocado en el juego</li></ul></div>
+        <div class="cons"><h4>Contras</h4><ul><li>Sin persistencia de datos</li><li>No hay reportes para el profesor</li></ul></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="option" data-choice="completo" onclick="toggleSelect(this)">
+    <div class="letter">B</div>
+    <div class="content">
+      <h3>Producto Completo — Juego + Herramienta docente</h3>
+      <p><strong>Qué incluye:</strong> Todo de A + panel del profesor con métricas de participación, historial de partidas por curso, perfiles de estudiantes, banco de preguntas ampliable, exportación de resultados (CSV/PDF), sistema de logros/badges para motivar.</p>
+      <div class="pros-cons" style="margin-top:10px;">
+        <div class="pros"><h4>Pros</h4><ul><li>Herramienta pedagógica completa</li><li>El profesor tiene datos reales</li><li>Motivación continua</li></ul></div>
+        <div class="cons"><h4>Contras</h4><ul><li>Requiere base de datos</li><li>Mucho más tiempo de desarrollo</li><li>Riesgo de scope creep</li></ul></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="option" data-choice="fases" onclick="toggleSelect(this)">
+    <div class="letter">C</div>
+    <div class="content">
+      <h3>Por Fases — MVP primero, luego herramienta docente</h3>
+      <p><strong>Fase 1:</strong> Construir el juego completo (igual que A).<br>
+      <strong>Fase 2:</strong> Una vez probado en sala, agregar las capas pedagógicas de B.</p>
+      <p style="margin-top:8px;">La arquitectura de Fase 1 se diseña para que Fase 2 sea posible (base de datos desde el inicio, aunque no se use del todo).</p>
+      <div class="pros-cons" style="margin-top:10px;">
+        <div class="pros"><h4>Pros</h4><ul><li>Entrega valor rápido</li><li>Validas en sala antes de invertir más</li><li>Sin reescrituras</li></ul></div>
+        <div class="cons"><h4>Contras</h4><ul><li>Requiere disciplina para no scope creep en Fase 1</li></ul></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<p style="margin-top:20px; font-size:0.85rem; opacity:0.7;">💡 Mi recomendación: <strong>C — Por Fases</strong>. El juego en sí ya es un producto valioso. Probarlo con estudiantes reales te dará información para decidir qué métricas docentes realmente importan.</p>
