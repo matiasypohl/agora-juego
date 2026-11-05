@@ -38,12 +38,6 @@ const PHASE_ICONS = {
   'debate_question': '⚔️', 'debate_vote': '⚔️', 'debate_result': '🏆'
 };
 
-const PHASE_TIMES = {
-  'agenda_window': 10, 'agenda': 60,
-  'voting': 20, 'strategy': 20, 'turn_result': 3,
-  'debate_question': 45, 'debate_vote': 20, 'debate_result': 3
-};
-
 // ─── Flavor Text for Strategy Cards ──────────────────────
 const FLAVOR_RESPALDO = [
   'El candidato rescató un gatito de un árbol 🐱',
@@ -250,8 +244,6 @@ function renderGameState(state) {
   const currentCandidate = state.players.find(p => p.id === state.currentCandidateId);
   $('phase-candidate-name').textContent = currentCandidate ? `— Turno de ${currentCandidate.name}` : '';
 
-  maxTime = PHASE_TIMES[state.phase] || 60;
-
   // Phase transition overlay
   const phaseChanged = state.phase && state.phase !== lastPhase;
   if (phaseChanged) {
@@ -296,11 +288,11 @@ function renderGameState(state) {
   }
 
   const isCandidate = state.myRole === 'candidate';
-  const isCurrentCandidate = state.currentCandidateId === socket.id;
+  const isCurrentCandidate = state.currentCandidateId === state.clientId;
   const isAdvisor = state.myRole === 'advisor';
 
   // Show instruction
-  const isChooser = state.agendaChooserId === socket.id;
+  const isChooser = state.agendaChooserId === state.clientId;
   const instruction = getInstruction(state.phase, state.myRole, isCurrentCandidate, { isChooser });
   $('role-instruction').innerHTML = instruction
     ? `<span class="instruction-icon">💡</span> ${instruction}`
@@ -324,7 +316,7 @@ function renderGameState(state) {
       state.myAdvisorTarget &&
       state.myAdvisorTarget === state.currentCandidateId;
     const isCurrentCandidateWithAdvisor =
-      state.currentCandidateId === socket.id &&
+      state.currentCandidateId === state.clientId &&
       state.myRole === 'candidate';
     const show = inAgendaPhase && (isAdvisorOfCurrent || isCurrentCandidateWithAdvisor);
     advisorPanel.classList.toggle('hidden', !show);
@@ -380,7 +372,7 @@ function renderAgendaWindow(state) {
   const currentCandidate = state.players.find(p => p.id === state.currentCandidateId);
   $('aw-candidate-name').textContent = currentCandidate ? currentCandidate.name : '?';
 
-  const isChooser = state.agendaChooserId === socket.id;
+  const isChooser = state.agendaChooserId === state.clientId;
   const choices = state.agendaChoices || [];
 
   if (isChooser && choices.length > 0 && !state.agendaClaimed) {
@@ -410,11 +402,6 @@ function renderAgendaWindow(state) {
         : 'Esperando que alguien elija el tema...';
     }
   }
-}
-
-function chooseAgenda(idx) {
-  sfxCardPlay();
-  socket.emit('agenda:choose', { choiceIndex: idx });
 }
 
 // ─── Agenda Phase ────────────────────────────────────────
@@ -451,11 +438,6 @@ function renderAgenda(state, isCurrentCandidate, isAdvisor) {
     $('candidate-answer-show').classList.add('hidden');
   }
 
-}
-
-function answerQuestion(label) {
-  sfxCardPlay();
-  socket.emit('event:answer', { answer: label });
 }
 
 // ─── Voting ──────────────────────────────────────────────
@@ -533,12 +515,6 @@ function renderStrategy(state, isCandidate) {
       </button>
     `;
   }).join('');
-}
-
-function playStrategy(cardType) {
-  if (hasPlayedStrategy) return;
-  sfxCardPlay();
-  socket.emit('strategy:play', { cardType });
 }
 
 function onStrategyConfirmed(data) {
@@ -670,8 +646,8 @@ function renderDebateQuestion(state, isCandidate) {
   $('debate-vs').textContent = `${p1?.name || '?'} vs ${p2?.name || '?'}`;
   $('debate-scenario').textContent = q.scenario;
 
-  const isDebater = state.debateCandidates?.includes(socket.id);
-  const myAnswer = state.debateAnswers?.[socket.id];
+  const isDebater = state.debateCandidates?.includes(state.clientId);
+  const myAnswer = state.debateAnswers?.[state.clientId];
 
   if (isDebater && !myAnswer) {
     $('debate-candidate-input').classList.remove('hidden');
@@ -729,7 +705,7 @@ function renderDebateVote(state, isCandidate) {
     `;
   }).join('');
 
-  const isDebater = state.debateCandidates?.includes(socket.id);
+  const isDebater = state.debateCandidates?.includes(state.clientId);
 
   if (isDebater) {
     $('debate-vote-buttons').classList.add('hidden');
@@ -748,15 +724,6 @@ function renderDebateVote(state, isCandidate) {
       return `<button class="btn btn-primary debate-vote-btn" data-action="debate-vote" data-candidate-id="${escapeHtml(cid)}" aria-label="Votar por ${escapeHtml(name)} en el debate">${escapeHtml(name)}</button>`;
     }).join('');
   }
-}
-
-function castDebateVote(candidateId) {
-  if (hasDebateVoted) return;
-  hasDebateVoted = true;
-  sfxVote();
-  socket.emit('debate:vote', { candidateId });
-  $('debate-vote-buttons').classList.add('hidden');
-  $('debate-vote-confirmed').classList.remove('hidden');
 }
 
 // ─── Debate Result ───────────────────────────────────────
@@ -837,7 +804,7 @@ function showGameEnd(results) {
           <div class="end-stat-label">Rondas</div>
         </div>
       </div>
-      <button class="btn btn-primary" style="margin-top:2rem; width:100%; max-width:300px;" onclick="window.location.href='/play'">
+      <button class="btn btn-primary end-lobby-button" data-action="return-lobby">
         🏛️ Volver al Lobby
       </button>
     </div>
@@ -845,7 +812,8 @@ function showGameEnd(results) {
 }
 
 // ─── Timer ───────────────────────────────────────────────
-function updateTimer(timeLeft) {
+function updateTimer(timeLeft, duration) {
+  if (duration > 0) maxTime = duration;
   currentTimeLeft = timeLeft;
   $('timer-text').textContent = timeLeft + 's';
 
@@ -913,83 +881,3 @@ function renderMyCards(state) {
     `;
   }).join('');
 }
-
-// ─── Event Listeners ─────────────────────────────────────
-document.addEventListener('DOMContentLoaded', () => {
-  // Enable audio on first interaction
-  document.addEventListener('click', () => ensureAudio(), { once: true });
-
-  // Delegated event handler for dynamically generated buttons
-  $('game-content')?.addEventListener('click', (e) => {
-    const btn = e.target.closest('[data-action]');
-    if (!btn) return;
-    const action = btn.dataset.action;
-    if (action === 'answer') answerQuestion(btn.dataset.label);
-    else if (action === 'choose-agenda') chooseAgenda(parseInt(btn.dataset.index, 10));
-    else if (action === 'play-strategy') playStrategy(btn.dataset.cardType);
-    else if (action === 'debate-vote') castDebateVote(btn.dataset.candidateId);
-  });
-
-  $('btn-send-advice')?.addEventListener('click', () => {
-    const msg = $('advisor-msg').value.trim();
-    if (msg) {
-      socket.emit('message:private', { text: msg });
-      $('advisor-msg').value = '';
-      $('advisor-msg').disabled = true;
-      $('btn-send-advice').disabled = true;
-      showToast('💬 Consejo enviado', 'success');
-    }
-  });
-
-  // Vote buttons — Step 1: Select
-  document.querySelectorAll('.btn-vote').forEach(btn => {
-    btn.addEventListener('click', () => {
-      if (hasVoted) return;
-      const vote = btn.dataset.vote;
-      sfxVote();
-      voteSelection = vote;
-      socket.emit('vote:select', { vote });
-
-      // Show selection for confirmation
-      $('vote-buttons').classList.add('hidden');
-      $('vote-selection-display').classList.remove('hidden');
-      $('vote-selection-emoji').textContent = vote === 'up' ? '👍' : '👎';
-      $('vote-selection-label').textContent = vote === 'up' ? 'A favor' : 'En contra';
-    });
-  });
-
-  // Vote — Step 2: Confirm
-  $('btn-vote-confirm')?.addEventListener('click', () => {
-    if (hasVoted || !voteSelection) return;
-    socket.emit('vote:confirm');
-    // Server will emit 'vote:confirmed' back
-  });
-
-  // Vote — Change selection
-  $('btn-vote-change')?.addEventListener('click', () => {
-    if (hasVoted) return;
-    voteSelection = null;
-    $('vote-selection-display').classList.add('hidden');
-    $('vote-buttons').classList.remove('hidden');
-  });
-
-  // Debate answer
-  $('btn-send-debate-answer')?.addEventListener('click', () => {
-    const text = $('debate-answer-input').value.trim();
-    if (text) {
-      socket.emit('debate:answer', { text });
-      $('debate-answer-input').disabled = true;
-      $('btn-send-debate-answer').disabled = true;
-      showToast('✅ Respuesta enviada', 'success');
-    }
-  });
-
-  $('btn-pass')?.addEventListener('click', () => {
-    hasPlayedStrategy = true;
-    socket.emit('strategy:pass');
-    $('strategy-hand').innerHTML = '';
-    $('btn-pass').classList.add('hidden');
-    $('strategy-confirmed').classList.remove('hidden');
-    $('strategy-confirmed').textContent = '✅ Pasaste este turno';
-  });
-});

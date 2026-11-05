@@ -35,20 +35,20 @@
 
       <!-- Waiting -->
       <section id="view-waiting" class="game-view" aria-label="Sala de espera">
-        <div style="text-align:center; padding: 3rem 0;">
-          <div style="font-size:4rem; margin-bottom:1rem;">🏛️</div>
+        <div class="waiting-view-content">
+          <div class="waiting-view-icon">🏛️</div>
           <p class="big-text">Esperando que inicie la partida...</p>
-          <p class="hint" style="margin-top:0.5rem;">El profesor asignará los roles</p>
+          <p class="hint mt-sm">El profesor asignará los roles</p>
         </div>
       </section>
 
       <!-- Agenda Window -->
       <section id="view-agenda-window" class="game-view hidden" aria-label="Ventana de agenda">
-        <div style="text-align:center;">
+        <div class="text-center">
           <p class="phase-desc">¡Turno de <strong id="aw-candidate-name"></strong>!</p>
           <div id="timer-big" class="timer-big"></div>
-          <div id="agenda-cards-hand" class="agenda-choices" style="margin-top:1.5rem;"></div>
-          <p id="aw-waiting" class="hint" style="margin-top:1rem;">Esperando que alguien elija el tema...</p>
+          <div id="agenda-cards-hand" class="agenda-choices mt-lg"></div>
+          <p id="aw-waiting" class="hint mt-md">Esperando que alguien elija el tema...</p>
         </div>
       </section>
 
@@ -66,12 +66,12 @@
 
       <!-- Advisor Panel (reusable — visible during agenda_window + agenda) -->
       <div id="advisor-panel" class="advisor-panel hidden">
-        <div id="advisor-input" class="hidden" style="display:flex; gap:0.5rem; align-items:center;">
-          <span style="font-size:1.2rem;">🤝</span>
-          <input type="text" id="advisor-msg" placeholder="Consejo privado a tu candidato..." maxlength="150" style="flex:1;">
+        <div id="advisor-input" class="advisor-input-row hidden">
+          <span class="advisor-input-icon">🤝</span>
+          <input type="text" id="advisor-msg" class="advisor-message-input" placeholder="Consejo privado a tu candidato..." maxlength="150">
           <button id="btn-send-advice" class="btn btn-small btn-primary">Enviar</button>
         </div>
-        <div id="advisor-received" class="advisor-bubble hidden" style="margin-top:0.5rem;">
+        <div id="advisor-received" class="advisor-bubble hidden mt-sm">
           <p class="advisor-label">💬 Mensaje del Asesor:</p>
           <p id="advisor-received-text"></p>
         </div>
@@ -79,17 +79,17 @@
 
       <!-- Voting Phase -->
       <section id="view-voting" class="game-view hidden" aria-label="Votación secreta">
-        <div style="text-align:center;">
-          <h3 style="margin-bottom:0.5rem;">🗳️ Votación Secreta</h3>
+        <div class="text-center">
+          <h3 class="mb-sm">🗳️ Votación Secreta</h3>
           <p class="phase-desc">¿Te convenció la postura del candidato?</p>
           <div id="vote-buttons" class="vote-buttons">
             <button class="btn-vote btn-vote-up" data-vote="up" aria-label="Votar a favor">👍</button>
             <button class="btn-vote btn-vote-down" data-vote="down" aria-label="Votar en contra">👎</button>
           </div>
-          <div id="vote-selection-display" class="hidden" style="padding:1rem 0;">
-            <p style="font-size:2.5rem; margin-bottom:0.5rem;" id="vote-selection-emoji"></p>
-            <p style="margin-bottom:1rem; color:var(--color-text-muted);">Tu elección: <strong id="vote-selection-label"></strong></p>
-            <div style="display:flex; gap:0.75rem; justify-content:center;">
+          <div id="vote-selection-display" class="vote-selection hidden">
+            <p class="vote-selection-emoji" id="vote-selection-emoji"></p>
+            <p class="vote-selection-label">Tu elección: <strong id="vote-selection-label"></strong></p>
+            <div class="vote-selection-actions">
               <button id="btn-vote-change" class="btn btn-secondary btn-small">Cambiar</button>
               <button id="btn-vote-confirm" class="btn btn-primary">✅ Confirmar voto</button>
             </div>
@@ -204,5 +204,7 @@
   <script src="/socket.io/socket.io.js"></script>
   <script src="/js/socket.js"></script>
   <script src="/js/game.js"></script>
+  <script src="/js/effects.js"></script>
+  <script src="/js/player-controller.js"></script>
 </body>
 </html>

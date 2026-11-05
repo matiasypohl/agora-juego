@@ -19,12 +19,12 @@
       <h2>Crear nueva sala</h2>
       <button id="btn-create" class="btn btn-primary btn-lg">Crear Sala</button>
 
-      <hr style="margin:1.5rem 0; border-color:var(--color-surface-2);">
+      <hr class="teacher-section-divider">
 
       <h2>Reconectar a sala existente</h2>
-      <div style="display:flex; gap:0.5rem; justify-content:center; align-items:center; flex-wrap:wrap;">
+      <div class="teacher-rejoin-row">
         <input type="text" id="rejoin-code" placeholder="Código de sala" maxlength="6" autocomplete="off"
-               style="text-transform:uppercase; max-width:160px;">
+               class="teacher-code-input">
         <button id="btn-rejoin" class="btn btn-secondary">Reconectar</button>
       </div>
       <p id="rejoin-error" class="error-msg"></p>
@@ -56,7 +56,7 @@
         <p class="hint" id="config-hint">Total estimado: <span id="config-total-turns">10</span> turnos</p>
       </div>
 
-      <div class="panel" style="text-align:center;">
+      <div class="panel text-center">
         <button id="btn-start" class="btn btn-primary btn-lg" disabled>Iniciar Partida</button>
         <p id="start-error" class="error-msg"></p>
       </div>
@@ -135,14 +135,16 @@
         <div id="stats-turns"></div>
       </div>
 
-      <div class="panel" style="text-align:center;">
+      <div class="panel text-center">
         <button id="btn-restart" class="btn btn-primary btn-lg">🔄 Jugar de nuevo</button>
-        <p class="hint" style="margin-top:0.5rem;">Vuelve al lobby con el mismo grupo</p>
+        <p class="hint mt-sm">Vuelve al lobby con el mismo grupo</p>
       </div>
     </div>
   </div>
 
   <script src="/socket.io/socket.io.js"></script>
+  <script src="/js/teacher-view.js"></script>
+  <script src="/js/teacher-statistics.js"></script>
   <script src="/js/teacher.js"></script>
 </body>
 </html>

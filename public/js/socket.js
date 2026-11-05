@@ -16,30 +16,12 @@ if (!roomCode) {
 // Game state
 let gameState = null;
 
-// ─── Connection Feedback ─────────────────────────────────
-function showConnectionOverlay(show, msg) {
-  let overlay = document.getElementById('connection-overlay');
-  if (show) {
-    if (!overlay) {
-      overlay = document.createElement('div');
-      overlay.id = 'connection-overlay';
-      overlay.className = 'connection-overlay';
-      document.body.appendChild(overlay);
-    }
-    overlay.innerHTML = `
-      <div class="connection-overlay-content">
-        <div class="connection-spinner"></div>
-        <p>${msg || 'Reconectando...'}</p>
-      </div>
-    `;
-    overlay.classList.remove('hidden');
-  } else if (overlay) {
-    overlay.classList.add('hidden');
-  }
+function publishSocketEvent(name, detail) {
+  window.dispatchEvent(new CustomEvent('agora:' + name, { detail }));
 }
 
 socket.on('connect', () => {
-  showConnectionOverlay(false);
+  publishSocketEvent('connection', { connected: true });
   // Try to reconnect to game
   const playerName = sessionStorage.getItem('agora_name');
   const reconnectToken = sessionStorage.getItem('agora_token');
@@ -53,109 +35,75 @@ socket.on('connect', () => {
 });
 
 socket.on('disconnect', () => {
-  showConnectionOverlay(true, 'Conexión perdida. Reconectando...');
+  publishSocketEvent('connection', { connected: false, message: 'Conexión perdida. Reconectando...' });
 });
 
 socket.on('reconnect_attempt', () => {
-  showConnectionOverlay(true, 'Reconectando...');
+  publishSocketEvent('connection', { connected: false, message: 'Reconectando...' });
 });
 
 socket.on('reconnect_failed', () => {
-  showConnectionOverlay(true, 'No se pudo reconectar. <a href="/play" style="color:var(--color-accent)">Volver al lobby</a>');
+  publishSocketEvent('connection', { connected: false, failed: true });
 });
 
 // ─── Game Events ─────────────────────────────────────────
 socket.on('game:state', (state) => {
   gameState = state;
-  if (typeof renderGameState === 'function') {
-    renderGameState(state);
-  }
+  publishSocketEvent('game-state', state);
 });
 
 socket.on('game:timer', (data) => {
-  if (typeof updateTimer === 'function') {
-    updateTimer(data.timeLeft);
-  }
+  publishSocketEvent('game-timer', data);
 });
 
 socket.on('vote:reveal', (data) => {
-  if (typeof showVoteReveal === 'function') {
-    showVoteReveal(data);
-  }
+  publishSocketEvent('vote-reveal', data);
 });
 
 socket.on('strategy:reveal', (data) => {
-  if (typeof showStrategyReveal === 'function') {
-    showStrategyReveal(data);
-  }
+  publishSocketEvent('strategy-reveal', data);
 });
 
 socket.on('strategy:confirmed', (data) => {
-  if (typeof onStrategyConfirmed === 'function') {
-    onStrategyConfirmed(data);
-  }
+  publishSocketEvent('strategy-confirmed', data);
 });
 
 socket.on('message:private', (data) => {
-  if (typeof showAdvisorMessage === 'function') {
-    showAdvisorMessage(data);
-  }
+  publishSocketEvent('private-message', data);
 });
 
 socket.on('game:end', (results) => {
-  if (typeof showGameEnd === 'function') {
-    showGameEnd(results);
-  }
+  publishSocketEvent('game-end', results);
 });
 
 // ─── Vote Confirmed (two-step voting) ────────────────────
 socket.on('vote:confirmed', () => {
-  if (typeof hasVoted !== 'undefined') {
-    hasVoted = true;
-    voteSelection = null;
-  }
-  const selDisplay = document.getElementById('vote-selection-display');
-  const confirmed = document.getElementById('vote-confirmed');
-  if (selDisplay) selDisplay.classList.add('hidden');
-  if (confirmed) confirmed.classList.remove('hidden');
-  if (typeof showToast === 'function') showToast('✅ Voto confirmado', 'success');
+  publishSocketEvent('vote-confirmed');
 });
 
 // ─── Escándalo & Debate Events ───────────────────────────
 socket.on('game:scandal', (data) => {
-  if (typeof showScandalAlert === 'function') {
-    showScandalAlert(data);
-  }
+  publishSocketEvent('scandal', data);
 });
 
 socket.on('debate:result', (data) => {
-  if (typeof showDebateResult === 'function') {
-    showDebateResult(data);
-  }
+  publishSocketEvent('debate-result', data);
 });
 
 // ─── Error Feedback ─────────────────────────────────────
 socket.on('error', (data) => {
-  if (data?.message && typeof showToast === 'function') {
-    showToast(data.message, 'error');
-  }
+  publishSocketEvent('error', data);
 });
 
 // ─── Player Connect/Disconnect Notifications ────────────
 socket.on('player:disconnected', (data) => {
-  if (data?.name && typeof showToast === 'function') {
-    showToast(`⚠️ ${data.name} se desconectó`, 'warning');
-  }
+  publishSocketEvent('player-disconnected', data);
 });
 
 socket.on('player:reconnected', (data) => {
-  if (data?.name && typeof showToast === 'function') {
-    showToast(`✅ ${data.name} se reconectó`, 'success');
-  }
+  publishSocketEvent('player-reconnected', data);
 });
 
 socket.on('player:waiting', (data) => {
-  if (data?.name && typeof showToast === 'function') {
-    showToast(`⏳ Esperando a ${data.name} (${data.seconds}s)...`, 'warning');
-  }
+  publishSocketEvent('player-waiting', data);
 });

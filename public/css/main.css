@@ -1722,6 +1722,56 @@ h1, h2, h3, h4, h5, h6 {
 .rounded-full { border-radius: var(--radius-full); }
 
 .hidden { display: none !important; }
+.connection-return-link { color: var(--color-accent); }
+.end-lobby-button {
+  width: 100%;
+  max-width: 300px;
+  margin-top: 2rem;
+}
+.teacher-section-divider {
+  margin: 1.5rem 0;
+  border-color: var(--color-surface-2);
+}
+.teacher-rejoin-row {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+.teacher-code-input {
+  max-width: 160px;
+  text-transform: uppercase;
+}
+.waiting-view-content {
+  padding: 3rem 0;
+  text-align: center;
+}
+.waiting-view-icon {
+  margin-bottom: 1rem;
+  font-size: 4rem;
+}
+.advisor-input-row {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+.advisor-input-icon { font-size: 1.2rem; }
+.advisor-message-input { flex: 1; }
+.vote-selection { padding: 1rem 0; }
+.vote-selection-emoji {
+  margin-bottom: 0.5rem;
+  font-size: 2.5rem;
+}
+.vote-selection-label {
+  margin-bottom: 1rem;
+  color: var(--color-text-muted);
+}
+.vote-selection-actions {
+  display: flex;
+  justify-content: center;
+  gap: 0.75rem;
+}
 .sr-only {
   position: absolute;
   width: 1px;
@@ -1899,6 +1949,24 @@ h1, h2, h3, h4, h5, h6 {
 .player-chip.candidate {
   border-color: var(--color-accent);
   color: var(--color-accent);
+}
+
+.lobby-player-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.3rem;
+  margin-bottom: 1rem;
+}
+
+.shake {
+  animation: shake 0.4s ease;
+}
+
+@keyframes shake {
+  0%, 100% { transform: translateX(0); }
+  20%, 60% { transform: translateX(-6px); }
+  40%, 80% { transform: translateX(6px); }
 }
 
 .player-count {
